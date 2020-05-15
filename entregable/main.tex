@@ -3,13 +3,13 @@
 \usepackage[catalan]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
+\usepackage{graphicx}
 
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{PAP}
 \lhead{Designing our own cluster}
 \cfoot{Pàgina \thepage}
-
 
 \begin{document}
 
@@ -30,14 +30,31 @@
 %https://www.servethehome.com/cavium-thunderx2-review-benchmarks-real-arm-server-option/
 
 \section{Descripció}
-Emprarem l'arquitectura ARM (Advanced RISC Machine). \cite{exemple}
+
+La primera qüestió a plantejar-nos ha estat quin seria el processador meś adient. Per a prendre una decisió de la forma més encertada possible, hem cregut oportú elaborar una taula amb diverses possibilitats i comparar les característiques de totes elles. Els principals criteris valorats per a prendre aquesta elecció, tal com es pot veure a la figura \ref{chartCPUs}, han estat els GFlops/Socket, els GFlops/Watt i els GFlops/Dòllar (sent els GFlops normalitzats). 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{entregable/fitxers/chartCPU}
+    \caption{Comparativa entre les diverses CPUs valorades.}
+    \label{chartCPUs}
+\end{figure}
+
+Després d'estudiar els resultats, per tenir un major marge de maniobre de cara a decisions futures hem pre-seleccionat dos processadors: l'\textit{AMD EPYC 7702P} \cite{AMDE7702P} i l'\textit{AMD EPYC Rome 7502P} \cite{AMDER7502P}, el primer per mostrar un excel·lent equilibri entre les tres principals característiques estudiades, i el segon per oferir el GFlop més barat sense menystenir excessivament els altres dos aspectes principals.
+
+Seguidament, continuant amb la dinàmica establerta, hem prosseguit a analitzar diversos candidats per a tots i cadascun dels possibles components del clúster. A més, certs elements són opcionals i cal estudiar la seva viabilitat, com per exemple les GPUs.  %No m'acaba de fer el pes aquest paràgraf per lligar.
+
+%S'ha de seguir però tinc son, això és tot per avui amics.
 
 \section{Components}
 
 \section{Representació Roofline}
 
 \begin{thebibliography}{}
-\bibitem{exemple} Exemple: Exemples, \\ \texttt{exemples.cat}
+
+\bibitem{AMDE7702P} AMD EPYC 7702P: \textit{Newegg Business}, \\
+https://www.neweggbusiness.com/product/product.aspx?item=9b-19-113-583
+\bibitem{AMDER7502P} AMD EPYC Rome 7502P: \textit{Newegg Business}, \\ https://www.neweggbusiness.com/product/product.aspx?item=9siv1dsa223\\241\&bri=9b-19-113-589
 
 \end{thebibliography}
 
