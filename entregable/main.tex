@@ -42,7 +42,17 @@ La primera qüestió a plantejar-nos ha estat quin seria el processador meś adi
 
 Després d'estudiar els resultats, per tenir un major marge de maniobre de cara a decisions futures hem pre-seleccionat dos processadors: l'\textit{AMD EPYC 7702P} \cite{AMDE7702P} i l'\textit{AMD EPYC Rome 7502P} \cite{AMDER7502P}, el primer per mostrar un excel·lent equilibri entre les tres principals característiques estudiades, i el segon per oferir el GFlop més barat sense menystenir excessivament els altres dos aspectes principals.
 
-Seguidament, continuant amb la dinàmica establerta, hem prosseguit a analitzar diversos candidats per a tots i cadascun dels possibles components del clúster. A més, certs elements són opcionals i cal estudiar la seva viabilitat, com per exemple les GPUs.  %No m'acaba de fer el pes aquest paràgraf per lligar.
+Seguidament, continuant amb la dinàmica establerta, hem prosseguit a analitzar diversos candidats per a tots i cadascun dels possibles components del clúster. A més, certs elements són opcionals i cal estudiar la seva viabilitat, com per exemple les GPUs.
+
+%Seguim, però cal retocar-ho tot:
+
+Cal plantejar a més, un problema. Volem aconseguir el màxim nombre de teraflops satisfent tan les restriccions d'espai de dos armaris (84U) com la del percentatge de teraflops que podem obtenir fruit de l'ús de GPUs. La solució d'aquest escenari ve definit per la tipologia de xarxa així com el nombre de commutadors que emprarem en aquesta xarxa (...), ja que la combinació d'aquests dos factors determinarà el nombre de nodes disponibles en el sisisema.
+
+Entenent que en el nostre cas els nodes que contenen gràfiques ocupen 2U, a diferència dels que no que n'ocupen una, ens convé agrupar les graiques en un subconjunt dels nodes per tenir la major densitat de gràfiques per unitat. El nombre de nodes total ve determinat per la gràfica que utilitzem, el nombre de commutadors utilitzats, el processador que utilitzem, i el nombre de gràfiques que utilitzem. 
+
+Cal entendre que a més commutadors major serà el nombre de nodes [..explicar xarxa..] que podem connectar a la xarxa però, paral·lelament, menor serà el nombre d'unitats que quedaran disponibles pels nodes de computació. Un cop s'hagi delimitat el nombre d'unitats i nodes disponibles, cal cercar la millor combinació possible entre nodes amb GPUs (que ocuparan dues unitats) i nodes lliures de GPUs (que ocuparan una unitat).
+
+A més, entenent que el nostre disseny ve limitat per la condició que un màxim del 30\% dels flops del nostre sistema poden provenir de GPUs, i que el màxim nombre de GPUs varia en funció de la placa base (que ve determinada pel processador utilitzat). Hem explorat totes les configuracions possibles per trobar aquella que ens oferia un major nombre de flops sense sortir de la restricció del preu.
 
 %S'ha de seguir però tinc son, això és tot per avui amics.
 
