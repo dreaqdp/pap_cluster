@@ -42,9 +42,13 @@ La primera qüestió a plantejar-nos ha estat quin seria el processador meś adi
 
 Després d'estudiar els resultats, per tenir un major marge de maniobre de cara a decisions futures hem pre-seleccionat dos processadors: l'\textit{AMD EPYC 7702P} \cite{AMDE7702P} i l'\textit{AMD EPYC Rome 7502P} \cite{AMDER7502P}, el primer per mostrar un excel·lent equilibri entre les tres principals característiques estudiades, i el segon per oferir el GFlop més barat sense menystenir excessivament els altres dos aspectes principals.
 
-Seguidament, continuant amb la dinàmica establerta, hem prosseguit a analitzar diversos candidats per a tots i cadascun dels possibles components del clúster. A més, certs elements són opcionals i cal estudiar la seva viabilitat, com per exemple les GPUs.
+Seguidament, continuant amb la dinàmica establerta, hem prosseguit a analitzar diversos candidats per a tots i cadascun dels possibles components del clúster. A més, certs elements són opcionals i cal estudiar la seva viabilitat, com per exemple les GPUs. 
 
-%Seguim, però cal retocar-ho tot:
+No obstant, abans de prosseguir amb els següents aspectes del disseny cal valorar algunes limitacions establertes per la documentació del projecte que seran decisives d'ara endavant. Per exemple, pel que fa a GPUs el nostre disseny ve delimitat per la condició que fins a un màxim del 30\% dels flops del sistema poden provenir de nodes de computació accelerats, és a dir, de nodes amb GPUs. Tanmateix, el nombre màxim de GPUs dependrà de la placa base escollida, que al seu torn depèn del processador que haguem escollit. 
+
+L'espai també serà un problema a tenir en compte: disposem de dos armaris, cadascun d'ells de 42U i, en definitiva, 84U totals. Aquells nodes que contenen una gràfica ocuparan 2U, mentre que aquells que no en tinguin ocuparan 1U. Finalment, cal tenir present la restricció del preu global del sistema en un milió i mig d'euros. 
+
+%Cal anar agafant coses d'aquí sota i anar-ho re-escrivint i col·locant ben maco a sobre:
 
 Cal plantejar a més, un problema. Volem aconseguir el màxim nombre de teraflops satisfent tan les restriccions d'espai de dos armaris (84U) com la del percentatge de teraflops que podem obtenir fruit de l'ús de GPUs. La solució d'aquest escenari ve definit per la tipologia de xarxa així com el nombre de commutadors que emprarem en aquesta xarxa (...), ja que la combinació d'aquests dos factors determinarà el nombre de nodes disponibles en el sisisema.
 
