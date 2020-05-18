@@ -1,0 +1,34 @@
+\section{Descripció}
+% propostes de noms de la secció: entorn, introducció + subsecció metodologia
+
+La primera qüestió a plantejar-nos ha estat quin seria el processador meś adient. Per a prendre una decisió de la forma més encertada possible, hem cregut oportú elaborar una taula amb diverses possibilitats i comparar les característiques de totes elles. Els principals criteris valorats per a prendre aquesta elecció, tal com es pot veure a la figura \ref{chartCPUs}, han estat els GFlops/Socket, els GFlops/Watt i els GFlops/Dòllar (sent els GFlops normalitzats respecte la mitjana). 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/chartCPU}
+    \caption{Comparativa entre les diverses CPUs valorades.}
+    \label{chartCPUs}
+\end{figure}
+
+Després d'estudiar els resultats, per tenir un major marge de maniobre de cara a decisions futures hem pre-seleccionat dos processadors: l'\textit{AMD EPYC 7702P} \cite{cpu_amd_7702_buy} i l'\textit{AMD EPYC Rome 7502P} \cite{cpu_amd_7502_buy}, el primer per mostrar un excel·lent equilibri entre les tres principals característiques estudiades, i el segon per oferir el GFlop més barat sense menystenir excessivament els altres dos aspectes principals.
+
+\subsection{Metodologia}
+Seguidament, continuant amb la dinàmica establerta, hem prosseguit a analitzar diversos candidats per a tots i cadascun dels possibles components del clúster. A més, certs elements són opcionals i cal estudiar la seva viabilitat, com per exemple les GPUs. 
+
+No obstant, abans de prosseguir amb els següents aspectes del disseny cal valorar algunes limitacions establertes per la documentació del projecte que seran decisives d'ara endavant. Per exemple, pel que fa a GPUs el nostre disseny ve delimitat per la condició que fins a un màxim del 30\% dels flops del sistema poden provenir de nodes de computació accelerats, és a dir, de nodes amb GPUs. Tanmateix, el nombre màxim de GPUs dependrà de la placa base escollida, que al seu torn depèn del processador que haguem escollit. 
+
+L'espai també serà un problema a tenir en compte: disposem de dos armaris, cadascun d'ells de 42U i, en definitiva, 84U totals. Aquells nodes que contenen una gràfica ocuparan 2U, mentre que aquells que no en tinguin ocuparan 1U. Finalment, cal tenir present la restricció del preu global del sistema en un milió i mig d'euros. 
+
+%Cal anar agafant coses d'aquí sota i anar-ho re-escrivint i col·locant ben maco a sobre:
+
+Cal plantejar a més, un problema. Volem aconseguir el màxim nombre de teraflops satisfent tan les restriccions d'espai de dos armaris (84U) com la del percentatge de teraflops que podem obtenir fruit de l'ús de GPUs. La solució d'aquest escenari ve definit per la tipologia de xarxa així com el nombre de commutadors que emprarem en aquesta xarxa (...), ja que la combinació d'aquests dos factors determinarà el nombre de nodes disponibles en el sisisema.
+
+Entenent que en el nostre cas els nodes que contenen gràfiques ocupen 2U, a diferència dels que no que n'ocupen una, ens convé agrupar les graiques en un subconjunt dels nodes per tenir la major densitat de gràfiques per unitat. El nombre de nodes total ve determinat per la gràfica que utilitzem, el nombre de commutadors utilitzats, el processador que utilitzem, i el nombre de gràfiques que utilitzem. 
+
+Cal entendre que a més commutadors major serà el nombre de nodes [..explicar xarxa..] que podem connectar a la xarxa però, paral·lelament, menor serà el nombre d'unitats que quedaran disponibles pels nodes de computació. Un cop s'hagi delimitat el nombre d'unitats i nodes disponibles, cal cercar la millor combinació possible entre nodes amb GPUs (que ocuparan dues unitats) i nodes lliures de GPUs (que ocuparan una unitat).
+
+A més, entenent que el nostre disseny ve limitat per la condició que un màxim del 30\% dels flops del nostre sistema poden provenir de GPUs, i que el màxim nombre de GPUs varia en funció de la placa base (que ve determinada pel processador utilitzat). Hem explorat totes les configuracions possibles per trobar aquella que ens oferia un major nombre de flops sense sortir de la restricció del preu.
+
+%S'ha de seguir però tinc son, això és tot per avui amics.
+
+
