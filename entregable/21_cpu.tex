@@ -3,8 +3,10 @@
 La primera qüestió a plantejar-nos ha estat quin seria el processador meś adient. Per a prendre una decisió de la forma més encertada possible hem cregut oportú elaborar una taula amb diverses possibilitats i comparar les característiques de totes elles, tal com es pot observar a la taula següent:
 
 \begin{table}[H]
+\begin{adjustwidth}{-1.0in}{-1.0in}  
+    \begin{center}
     \centering
-    \scalebox{0.7}{
+    \scalebox{0.9}{
 \begin{tabular}{c||c|c|c|c|c|c|c|c|c}
     \hline
 Processador & \begin{tabular}[c]{@{}c@{}}Freq \\ (GHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}SIMD \\ (bits)\end{tabular} & \begin{tabular}[c]{@{}c@{}}SIMD \\ units\end{tabular} & Nuclis & Watts & \begin{tabular}[c]{@{}c@{}}Preu \\ (Dòllars)\end{tabular} & \begin{tabular}[c]{@{}c@{}} GFlops/ \\ Socket \end{tabular} & \begin{tabular}[c]{@{}c@{}}GFlops/ \\ Watts\end{tabular} & \begin{tabular}[c]{@{}c@{}}GFlops/ \\ Dòllar\end{tabular} \\ \hline \hline
@@ -32,6 +34,8 @@ Intel Xeon Platinum 8284  & 3.00       & 512                                    
 }
     \caption{Comparativa d'especificacions per cada processador considerat.}
     \label{tab:cpu_cmp}
+    \end{center}
+    \end{adjustwidth}
 \end{table}
 
 Per a major precisió i comoditat a l'hora d'analitzar els diversos processadors candidats, els principals criteris valorats per a prendre aquesta elecció, tal com es pot veure a la figura \ref{chartCPUs}, han estat els GFlops/Socket, els GFlops/Watt i els GFlops/Dòllar (sent els GFlops normalitzats respecte la mitjana). 
