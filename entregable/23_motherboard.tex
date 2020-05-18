@@ -1,6 +1,6 @@
 \subsection{Motherboard}
 
-Una vegada escollits dos processadors com a contrinicants per al nostre clúster, hem mirat quines motherboards hi havia al mercat. Primerament les hem buscat de manera individual i hem seleccionat les següents.\\
+Una vegada escollits dos processadors com a contrincants, hem començat a mirar quines plaques bases hi havia al mercat. Primerament, les hem anat buscant de manera individual i les que hem seleccionat es poden veure a la taula següent.
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
@@ -19,11 +19,9 @@ H12SST-PS \cite{mother5} & 64 & 6 Gbps & 8 & 2 & 3x16 & 3959.86\euro \cite{mothe
 \caption{Comparació inicial de motherboards}
 \end{table}
 
+Com es pot veure, les diferències principals son el número de DIMS de memòria i els PCI-Express. No obstant, una vegada fetes les comparacions inicials, ens hem adonat que per algunes d'elles era excessivament complicat trobar el preu. Per exemple, els llocs on trobàvem els preus no és el mateix que on trobàvem les especificacions, per tant en alguns no estem segurs de que els preus siguin del tot realistes.
 
-
-Veiem que les diferències principals son el número de DIMS de memòria i els PCI-Express. No obstant, una vegada totes comparades, ens hem trobat amb que d'algunes no trobàvem el preu enlloc. Els llocs on trobàvem els preus no és el mateix que d'on trobavem les especificacions, per tant no estem segurs de que els preus siguin els correctes.\\
-
-Buscant els preus ens hem trobat amb una altra web \cite{webnodes} que ens deixa crear un node seleccionant nosaltres els seus components. Hem vist que els tipus de node es diferencien inicialment entre aquells amb GPU i aquells sense GPU. Dins d'aquests dos grups, trobem també els dual-socket i els single-socket.\\
+Buscant els preus ens hem trobat amb una altra web \cite{webnodes} que ens permet crear un node seleccionant nosaltres els seus components. Hem vist que els tipus de node es diferencien inicialment entre aquells amb GPU i aquells sense GPU. Dins d'aquests dos grups, trobem també els dual-socket i els single-socket.
 
 \begin{figure}[h]
     \centering
@@ -31,11 +29,11 @@ Buscant els preus ens hem trobat amb una altra web \cite{webnodes} que ens deixa
     \caption{Exemple de nodes que podem trobar a la web. A l'esquerra amb GPUs i a la dreta sense. Tots single-socket.}
 \end{figure}
 
-Com el processador \textit{AMD EPYC 7702P} té 64 cores i el \textit{AMD EPYC Rome 7502P} en té 32, hem decidit plantejar-nos les opcions de nodes dual-socket amb dos processadors 7502P i nodes single-socket amb el processador 7702P. En cas d'escollir un node amb suport per GPU, s'coupen dues \textit{U}s en compte de una sola. En el cas dels nodes amb dual-socket, es poden suportar fins a 8 GPUs mentres que amb els single-socket només la meitat, 4.
+Com que el processador \textit{AMD EPYC 7702P} té seixanta-quatre nuclis i l'\textit{AMD EPYC Rome 7502P} en té trenta-dos, hem decidit plantejar-nos les opcions de nodes dual-socket amb dos processadors \textit{7502P} i nodes single-socket amb el processador \textit{7702P}. En cas d'escollir un node amb suport per GPU, ocuparem dues \textit{U}s en compte d'una de sola. En el cas dels nodes amb dual-socket, es poden suportar fins a vuit GPUs mentre que amb els single-socket només la meitat, quatre.
 
- En la següent taula es veuen aquestes posibles combinacions. En el cas d'utilitzar un node amb GPUs no s'ha inclos el preu de la pròpia GPU ja que això dependrà de quina escollim més endevant. Per la mateixa raó, tampoc s'ha exposat els GFLOPs de les versions amb GPU. En aquests preus tampoc s'inclouen els costos de les memòries i les targetes de xarxa.
+ En la següent taula es veuen aquestes possibles combinacions. En el cas d'utilitzar un node amb GPUs no s'ha inclòs el preu de la pròpia GPU, ja que això dependrà de quina escollim més endavant. Per la mateixa raó, tampoc s'han exposat els GFLOPs de les versions amb GPU. En aquests preus tampoc s'inclouen els costos de les memòries i les targetes de xarxa.
 
-\begin{table}[h!]
+\begin{table}[H]
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -49,5 +47,5 @@ Com el processador \textit{AMD EPYC 7702P} té 64 cores i el \textit{AMD EPYC Ro
 \end{table}
 
 
-Veiem que tot i que la versió amb dual socket ens proporciona més GFLOPs, l'eficiència GFlops/\euro és millor per la versió amb single socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUS utilitzem, quina xarxa tenim, etc. podrem valorar si tenim suficient presupost com per escollir la opció amb més GFLOPS. Alhora, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb la opció dual-socket en podem possar el doble per cada node.
+Veiem que tot i que la versió amb dual socket ens proporciona més GFLOPs, l'eficiència GFlops/euro és millor per la versió amb single socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUS utilitzem, quina xarxa tenim, etc. podrem valorar si tenim suficient presupost com per escollir la opció amb més GFLOPS. Alhora, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb la opció dual-socket en podem possar el doble per cada node.
 
