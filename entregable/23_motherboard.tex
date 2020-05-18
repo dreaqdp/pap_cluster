@@ -5,7 +5,7 @@ Una vegada escollits dos processadors com a contrincants, hem començat a mirar 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[h!]
+\begin{table}[H]
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -23,7 +23,7 @@ Com es pot veure, les diferències principals son el número de DIMS de memòria
 
 Buscant els preus ens hem trobat amb una altra web \cite{webnodes} que ens permet crear un node seleccionant nosaltres els seus components. Hem vist que els tipus de node es diferencien inicialment entre aquells amb GPU i aquells sense GPU. Dins d'aquests dos grups, trobem també els dual-socket i els single-socket.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{img/webnodes.png}
     \caption{Exemple de nodes que podem trobar a la web. A l'esquerra amb GPUs i a la dreta sense. Tots single-socket.}
@@ -45,7 +45,6 @@ Com que el processador \textit{AMD EPYC 7702P} té seixanta-quatre nuclis i l'\t
 \end{tabular}
 \caption{Comparació entre les diferents configuracions dels nodes}
 \end{table}
-
 
 Veiem que tot i que la versió amb dual socket ens proporciona més GFLOPs, l'eficiència GFlops/euro és millor per la versió amb single socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUS utilitzem, quina xarxa tenim, etc. podrem valorar si tenim suficient presupost com per escollir la opció amb més GFLOPS. Alhora, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb la opció dual-socket en podem possar el doble per cada node.
 
