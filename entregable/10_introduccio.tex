@@ -3,22 +3,13 @@
 En aquest projecte ens proposem dissenyar un clúster d'HPC (\textit{High Performance Computing}) obeïnt les restriccions establertes en la documentació. Aquestes condicions seran explicades en detall exposant les problemàtiques causades de cara a les decisions que caldrà prendre a l'hora d'escollir els diversos components del clúster.
 
 \subsection{Restriccions del disseny}
-En primer lloc, hi ha una restricció molt clara i sense marge per dubtes: el cost màxim per adquirir tots els components del clúster ha de ser d'un milió i mig d'euros. Això requerirà tenir ben present el preu de tots els elements i procurar de no superar el límit.
+En primer lloc, hi ha una restricció molt clara i sense marge per dubtes: el cost màxim per adquirir tots els components del clúster ha de ser d'un milió i mig d'euros. Això requerirà tenir ben present el preu de tots els elements i procurar no superar el límit.
 
-L'espai també queda definit: disposem de dos armaris, cadascun d'ells de 42U i, en definitiva, 84U totals. Aquells nodes que contenen una gràfica ocuparan 2U, mentre que aquells que no en tinguin ocuparan 1U. Cal entendre que a més commutadors major serà el nombre de nodes que podem connectar a la xarxa però, paral·lelament, menor serà el nombre d'unitats que quedaran disponibles pels nodes de computació. Un cop s'hagi establert el nombre d'unitats i nodes disponibles, cal cercar la millor combinació possible entre nodes amb GPUs (que ocuparan dues unitats) i nodes lliures de GPUs (que ocuparan una unitat).
+L'espai també queda definit: disposem de dos armaris, cadascun d'ells de 42U i, en definitiva, 84U totals. Aquells nodes que contenen una gràfica ocuparan 2U, mentre que aquells que no en tinguin ocuparan 1U. Cal entendre que a més commutadors major serà el nombre de nodes que podem connectar a la xarxa però, paral·lelament, menor serà el nombre d'unitats que quedaran disponibles pels nodes de computació. Un cop s'hagi establert el nombre d'unitats i nodes disponibles, s'haurà de cercar la millor combinació possible entre nodes amb GPUs i nodes lliures d'elles.
 
 Pel que fa a GPUs, el nostre disseny ve delimitat per la condició que fins a un màxim del 30\% dels flops del sistema poden provenir de nodes de computació accelerats, és a dir, de nodes amb GPUs. Tanmateix, el nombre màxim de GPUs dependrà de la placa base escollida, que al seu torn depèn del processador que haguem escollit. En definitiva: les decisions s'hauran de prendre amb peus de plom, sempre mantenint la possibilitat de fer un pas enrere i modificar qualsevol elecció prèvia.
 
-%Cal anar agafant coses d'aquí sota i anar-ho re-escrivint i col·locant ben maco a sobre:
+Finalment, no existeix cap restricció específica pel que fa al consum energètic, però evidentment és important intentar maximitzar l'eficiència energètica del clúster. 
 
-%Cal plantejar a més, un problema. Volem aconseguir el màxim nombre de teraflops satisfent tan les restriccions d'espai de dos armaris (84U) com la del percentatge de teraflops que podem obtenir fruit de l'ús de GPUs. La solució d'aquest escenari ve definit per la tipologia de xarxa així com el nombre de commutadors que emprarem en aquesta xarxa (...), ja que la combinació d'aquests dos factors determinarà el nombre de nodes disponibles en el sisisema.
-
-%Entenent que en el nostre cas els nodes que contenen gràfiques ocupen 2U, a diferència dels que no que n'ocupen una, ens convé agrupar les graiques en un subconjunt dels nodes per tenir la major densitat de gràfiques per unitat. El nombre de nodes total ve determinat per la gràfica que utilitzem, el nombre de commutadors utilitzats, el processador que utilitzem, i el nombre de gràfiques que utilitzem. 
-
-%Cal entendre que a més commutadors major serà el nombre de nodes [..explicar xarxa..] que podem connectar a la xarxa però, paral·lelament, menor serà el nombre d'unitats que quedaran disponibles pels nodes de computació. Un cop s'hagi delimitat el nombre d'unitats i nodes disponibles, cal cercar la millor combinació possible entre nodes amb GPUs (que ocuparan dues unitats) i nodes lliures de GPUs (que ocuparan una unitat).
-
-%A més, entenent que el nostre disseny ve limitat per la condició que un màxim del 30\% dels flops del nostre sistema poden provenir de GPUs, i que el màxim nombre de GPUs varia en funció de la placa base (que ve determinada pel processador utilitzat). Hem explorat totes les configuracions possibles per trobar aquella que ens oferia un major nombre de flops sense sortir de la restricció del preu.
-
-%S'ha de seguir però tinc son, això és tot per avui amics.
-
+%Sou benvinguts de retocar el que us surti dels pebrots.
 
