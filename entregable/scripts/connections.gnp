@@ -13,8 +13,8 @@ set grid x
 
 set xtics 1
 set ylabel  "Compute connections"
-set y2label "Numero de Us disponibles"
-set xlabel  "Numero de commutadors"
+set y2label "Número de Us disponibles"
+set xlabel  "Número de commutadors"
 
 set key on outside center top horizontal maxcols 3
 
