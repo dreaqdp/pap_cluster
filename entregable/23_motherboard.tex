@@ -7,7 +7,7 @@ Una vegada escollits dos processadors com a contrincants, hem començat a mirar 
     \begin{center}
     \centering
     \scalebox{1.0}{
-\begin{tabular}{c|c|c|c|c|c|c}
+\begin{tabular}{c||c|c|c|c|c|c}
     \hline
 Placa mare & \begin{tabular}[c]{@{}c@{}}Nuclis \\ Màx.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Storage \\ Speed\end{tabular} & \begin{tabular}[c]{@{}c@{}}DIMS \\ Màx.\end{tabular} & \begin{tabular}[c]{@{}c@{}}USB \\ 3.0\end{tabular} & PCIe & \begin{tabular}[c]{@{}c@{}}Preu \\ (Euros)\end{tabular} \\ \hline \hline
 \rowcolor[HTML]{EFEFEF}
@@ -45,13 +45,13 @@ Com que el processador \textit{AMD EPYC 7702P} té seixanta-quatre nuclis i l'\t
     \begin{center}
     \centering
     \scalebox{1.0}{
-\begin{tabular}{c|c|c|c|c|c|c}
+\begin{tabular}{c||c|c|c|c|c|c}
     \hline
 Configuració & Nuclis & \begin{tabular}[c]{@{}c@{}}GFlops \\ CPU\end{tabular} & GPUs & Us & \begin{tabular}[c]{@{}c@{}}Preu \\ (Euros)\end{tabular} & \begin{tabular}[c]{@{}c@{}}GFlops/ \\ Euros\end{tabular} \\ \hline \hline
-\cellcolor[HTML]{EFEFEF} &  &  & - & 1 & 10001 & 0.256 \\ \cline{4-7} 
-\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Dual amb AMD\\ EPYC Rome 7502P\end{tabular}} & \multirow{-2}{*}{128} & \multirow{-2}{*}{2560} & 8 & 2 & 12266 & - \\ \hline
-\cellcolor[HTML]{EFEFEF} &  &  & - & 1 & 8172 & 0.251 \\ \cline{4-7} 
-\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Single amb AMB\\ EPYC 7702P\end{tabular}} & \multirow{-2}{*}{128} & \multirow{-2}{*}{2048} & 4 & 2 & 9461 & - \\ \hline
+ &  &  & \cellcolor[HTML]{EFEFEF}- & \cellcolor[HTML]{EFEFEF}1 & \cellcolor[HTML]{EFEFEF}10001 & \cellcolor[HTML]{EFEFEF}0.256 \\ \cline{4-7} 
+\multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Dual amb AMD\\ EPYC Rome 7502P\end{tabular}} & \multirow{-2}{*}{128} & \multirow{-2}{*}{2560} & 8 & 2 & 12266 & - \\ \hline
+ &  &  & \cellcolor[HTML]{EFEFEF}- & \cellcolor[HTML]{EFEFEF}1 & \cellcolor[HTML]{EFEFEF}8172 & \cellcolor[HTML]{EFEFEF}0.251 \\ \cline{4-7} 
+\multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Single amb AMB\\ EPYC 7702P\end{tabular}} & \multirow{-2}{*}{128} & \multirow{-2}{*}{2048} & 4 & 2 & 9461 & - \\ \hline
 \rowcolor[HTML]{EFEFEF}
 \end{tabular}
 }
@@ -61,5 +61,5 @@ Configuració & Nuclis & \begin{tabular}[c]{@{}c@{}}GFlops \\ CPU\end{tabular} &
     \end{adjustwidth}
 \end{table}
 
-Veiem que tot i que la versió amb dual socket ens proporciona més GFLOPs, l'eficiència GFlops/euro és millor per la versió amb single socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUS utilitzem, quina xarxa tenim, etcètera, podrem valorar si tenim suficient pressupost com per escollir la opció amb més GFLOPS. A més, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb la opció dual-socket en podem posar el doble per cada node.
+Veiem que tot i que la versió amb dual socket ens proporciona més GFLOPs, l'eficiència GFlops/euro és millor per la versió amb single socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUs utilitzem, quina xarxa tenim, etcètera, podrem valorar si tenim suficient pressupost com per escollir la opció amb més GFLOPS. A més, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb la opció dual-socket en podem posar el doble per cada node.
 
