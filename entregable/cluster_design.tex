@@ -14,6 +14,11 @@
 \usepackage{eurosym}
 \usepackage{setspace}
 \usepackage{chngpage}
+\usepackage[titletoc,toc,page]{appendix}
+
+% TODO: canviar a plural si fem més d'un apèndix
+\renewcommand{\appendixtocname}{Apèndix}
+\renewcommand{\appendixpagename}{Apèndix}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -28,6 +33,9 @@
 
 \include{portada}
 
+\tableofcontents
+\listoffigures
+\listoftables
 %https://docs.google.com/spreadsheets/d/1h09R-LO8-yKG6tomeKPeug_olNzxpoOcf6uOx5kS5uo/edit?usp=sharing
 
 
@@ -47,6 +55,10 @@
 \include{30_analisi}
 \include{40_final_cluster}
 
+\begin{appendices}
+    \input{50_annex.tex}
+\end{appendices}
+\newpage
 
 \bibliographystyle{unsrt}
 \bibliography{cluster}
