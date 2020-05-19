@@ -1,31 +1,38 @@
 \section{Clúster final}
-Veient les opcions presentades en la secció anterior,  hem decidit escollir la versió que ens dóna més TFlops. Aquesta és la que té nodes Dual-Socket amb el processador 7502. Hem escollit comprar els commutadors de 40 ports ja que ens ofereixen el doble de velocitat que els de 36 (200Gbits i 100Gbits respectivament).
+Veient les opcions presentades en la secció anterior,  hem decidit escollir la versió que ens dóna més TFlops. Aquesta és la que té nodes Dual-Socket amb el processador 7502. Hem escollit comprar els commutadors de 40 ports ja que ens ofereixen el doble de velocitat que els de 36 (200 Gbits i 100 Gbits respectivament).
+
+Podem veure que el percentatge de TFlops de les gràfiques respecte el total és 0.289. Aquest número s'aconseguia amb 12 GPUs, posant-ne 6 en dos nodes. Com els nodes tenen 8 slots per gràfiques, podriem afegir-ne 4 gràfiques amb menys TFlops i intentar apropar-nos al 
 
 Més concretament, aquesta és la configuració que hem escollit:
-\begin{table}[h!]
-\begin{tabular}{|l|l|}
+\begin{table}[H]
+\begin{adjustwidth}{-1.0in}{-1.0in}
+\begin{center}
+\begin{tabular}{l|l}
 \hline
-{\color[HTML]{000000} CPU}         & {\color[HTML]{000000} Dual-Socket AMD EPYC Rome 7502P} \\ \hline
-Cores/Node                                       & 128                                             \\ \hline
-{\color[HTML]{000000} GPU}                       & {\color[HTML]{000000} AMD Radeon Instinct MI50} \\ \hline
-\#GPUs                                           & 12 (2 nodes amb 6 GPUs)                         \\ \hline
-{\color[HTML]{000000} Memòria}     & {\color[HTML]{000000} Kingston KSM29RS4 DDR4 2933Hz}   \\ \hline
-{\color[HTML]{000000} Memòries/node}             & {\color[HTML]{000000} 8 DIMMS de 16GB}          \\ \hline
-{\color[HTML]{000000} Commutadors} & {\color[HTML]{000000} Mellanox MQM8700-HS2F, 200Gbits} \\ \hline
-{\color[HTML]{000000} \#Commutadors}             & {\color[HTML]{000000} 3}                        \\ \hline
-{\color[HTML]{000000} \#Nodes sense GPU (1U)}    & {\color[HTML]{000000} 77}                       \\ \hline
-{\color[HTML]{000000} \#Nodes amb GPU (2U)}      & {\color[HTML]{000000} 2}                        \\ \hline
-{\color[HTML]{000000} Us de nodes}               & {\color[HTML]{000000} 81}                       \\ \hline
-{\color[HTML]{000000} Us de nodes + commutadors} & {\color[HTML]{000000} 84}                       \\ \hline
-{\color[HTML]{000000} TFLOPS CPU}                & {\color[HTML]{000000} 197.5}                    \\ \hline
-{\color[HTML]{000000} TFLOPS GPU}                & {\color[HTML]{000000} 80.46}                    \\ \hline
-{\color[HTML]{000000} TFLOPS Totals}             & {\color[HTML]{000000} 277.96}                   \\ \hline
-{\color[HTML]{000000} TFLOPS GPU/Totals}         & {\color[HTML]{000000} 0.289}                    \\ \hline
-{\color[HTML]{000000} COST (\$)}                 & {\color[HTML]{000000} 1123147.449}              \\ \hline
-{\color[HTML]{000000} GFLOPS / \$}               & {\color[HTML]{000000} 0.253}                    \\ \hline
+{\cellcolor[HTML]{EFEFEF}CPU}         & {\cellcolor[HTML]{EFEFEF}Dual-Socket AMD EPYC Rome 7502P} \\ 
+Cores/Node                                       & 128                                             \\ 
+{\color[HTML]{000000}GPU}                       & {\color[HTML]{000000}AMD Radeon Instinct MI50} \\ 
+\#GPUs                                           & 12 (2 nodes amb 6 GPUs)                         \\ 
+{\cellcolor[HTML]{EFEFEF}Memòria}     & {\cellcolor[HTML]{EFEFEF}Kingston KSM29RS4 DDR4 2933Hz}   \\
+{\color[HTML]{000000}Memòries/node}             & {\color[HTML]{000000}8 DIMMS de 16GB}          \\ 
+{\cellcolor[HTML]{EFEFEF}Commutadors} & {\cellcolor[HTML]{EFEFEF}Mellanox MQM8700-HS2F, 200Gbits} \\ 
+{\color[HTML]{000000}\#Commutadors}             & {\color[HTML]{000000}3}                        \\ 
+{\cellcolor[HTML]{EFEFEF}\#Nodes sense GPU (1U)}    & {\cellcolor[HTML]{EFEFEF}77}                       \\
+{\color[HTML]{000000}\#Nodes amb GPU (2U)}      & {\color[HTML]{000000}2}                        \\
+{\cellcolor[HTML]{EFEFEF}Us de nodes}               & {\cellcolor[HTML]{EFEFEF}81}                       \\
+{\color[HTML]{000000}Us de nodes + commutadors} & {\color[HTML]{000000}84}                       \\
+{\cellcolor[HTML]{EFEFEF}TFlops CPU}                & {\cellcolor[HTML]{EFEFEF}197.5}                    \\
+{\color[HTML]{000000}TFlops GPU}                & {\color[HTML]{000000}80.46}                    \\ 
+{\cellcolor[HTML]{EFEFEF}TFlops Totals}             & {\cellcolor[HTML]{EFEFEF}277.96}                   \\ 
+{\color[HTML]{000000}TFlops GPU/Totals}         & {\color[HTML]{000000} 0.289}                    \\ 
+{\cellcolor[HTML]{EFEFEF}Cost (Dòllars)}                 & {\cellcolor[HTML]{EFEFEF}1123147.449}              \\
+{\color[HTML]{000000}GFlops/Dòllar}               & {\color[HTML]{000000}0.253}                    \\ \hline
 \end{tabular}
 \caption{Configuració final del clúster}
+\end{center}
+\end{adjustwidth}
 \end{table}
+
 
 
 
