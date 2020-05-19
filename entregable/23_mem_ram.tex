@@ -1,10 +1,10 @@
 \subsection{Memòria RAM}
 
-Una de les restriccions del disseny es que hem de tenir 2GB de RAM per cada core. Tenint en compte que tenim 64 cores (ja sigui amb dual-socket o amb single-socket), necessitarem 128GB de RAM. 
+Una de les restriccions del disseny es que hem de tenir 2 GB de RAM per cada nucli. Tenint en compte que tenim seixanta-quatre nuclis (ja sigui amb dual-socket o amb single-socket), necessitarem 128 GB de RAM. 
 
-Hem decidit avaluar tres combinacions diferents per arribar a aquests 128GB. La primera és amb 16 DIMMs de 8GB, la segona amb 8 DIMMs de 16GB i per últim 4 DIMMs de 32GB. És més econòmic tenir menys DIMMs amb memòries de més capacitat, però limita el paral·lelisme per accedir-hi. Un altre aspecte a tenir en compte és que quants menys DIMMs utilitzem, més ens podrem expandir en un futur comprant més memòria.
+Hem decidit avaluar tres combinacions diferents per arribar a aquests 128 GB. La primera és amb 16 DIMMs de 8 GB, la segona amb 8 DIMMs de 16 GB i per últim 4 DIMMs de 32 GB. És més econòmic tenir menys DIMMs amb memòries de més capacitat, però limita el paral·lelisme per accedir-hi. Un altre aspecte a tenir en compte és que quants menys DIMMs utilitzem més ens podrem expandir en un futur comprant més memòria.
 
-També hem comparat les opcions de comprar memòria ECC (feta expressament per servidors) o NO-ECC. La diferència de preu és notable però creiem que val la pena, considerant que el pressupost no és ajustat. No hem aconseguit trobar memòries ECC de 3200Hz. En la taula següent es pot observar les memòries que hem comparat:
+També hem comparat les opcions de comprar memòria ECC (feta expressament per servidors) o NO-ECC. La diferència de preu és notable, però creiem que val la pena considerant que el pressupost no és ajustat. No hem aconseguit trobar memòries ECC de 3200 Hz. En la taula següent es pot observar les memòries que hem comparat:
 
 \begin{table}[H]
 \begin{adjustwidth}{-1.0in}{-1.0in}
@@ -27,4 +27,4 @@ Kingston HyperX Fury Black \cite{mem6} & NO & 32 & 3200 & 4 & CL16 & 169.0 & 676
 \end{adjustwidth}
 \end{table}
 
-Hem decidit decantar-nos per la versió amb 8 DIMMs de 16GB. Creiem que té un bon balanceig entre paral·lelisme, possible extensió i preu. Com estem dins el pressupost, hem escollit la versió ECC.
+Hem decidit decantar-nos per la versió amb vuit DIMMs de 16 GB. Creiem que té un bon balanceig entre paral·lelisme, possible extensió i preu. Com estem dins el pressupost, hem escollit la versió ECC.
