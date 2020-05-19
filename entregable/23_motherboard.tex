@@ -36,9 +36,9 @@ Buscant els preus ens hem trobat amb una altra web \cite{webnodes} que ens perme
     \caption{Exemple de nodes que podem trobar a la web. A l'esquerra amb GPUs i a la dreta sense. Tots single-socket.}
 \end{figure}
 
-Com que el processador \textit{AMD EPYC 7702P} té seixanta-quatre nuclis i l'\textit{AMD EPYC Rome 7502P} en té trenta-dos, hem decidit plantejar-nos les opcions de nodes dual-socket amb dos processadors \textit{7502P} i nodes single-socket amb el processador \textit{7702P}. En cas d'escollir un node amb suport per GPU, ocuparem dues \textit{U}s en compte d'una de sola. En el cas dels nodes amb dual-socket, es poden suportar fins a vuit GPUs mentre que amb els single-socket només la meitat, quatre.
+Com que el processador \textit{AMD EPYC 7702P} té 64 nuclis i l'\textit{AMD EPYC Rome 7502P} en té 32. En cas d'escollir un node amb suport per GPU, ocuparem 2 \textit{U}s en compte d'una de sola. En el cas dels nodes amb dual-socket, es poden suportar fins a 8 GPUs mentre que amb els single-socket només la meitat, 4.
 
- En la següent taula es veuen aquestes possibles combinacions. En el cas d'utilitzar un node amb GPUs no s'ha inclòs el preu de la pròpia GPU, ja que això dependrà de quina escollim més endavant. Per la mateixa raó, tampoc s'han exposat els GFLOPs de les versions amb GPU. En aquests preus tampoc s'inclouen els costos de les memòries i les targetes de xarxa.
+En la següent taula es veuen aquestes possibles combinacions. En el cas d'utilitzar un node amb GPUs no s'ha inclòs el preu de la pròpia GPU, ja que això dependrà de quina escollim més endavant. Per la mateixa raó, tampoc s'han exposat els GFLOPs de les versions amb GPU. En aquests preus tampoc s'inclouen els costos de les memòries i les targetes de xarxa.
 
 \begin{table}[H]
 \begin{adjustwidth}{-.5in}{-.5in}  
@@ -61,5 +61,5 @@ Configuració & Nuclis & \begin{tabular}[c]{@{}c@{}}GFlops \\ CPU\end{tabular} &
     \end{adjustwidth}
 \end{table}
 
-Veiem que tot i que la versió amb dual socket ens proporciona més GFLOPs, l'eficiència GFlops/euro és millor per la versió amb single socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUs utilitzem, quina xarxa tenim, etcètera, podrem valorar si tenim suficient pressupost com per escollir la opció amb més GFLOPS. A més, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb la opció dual-socket en podem posar el doble per cada node.
+Veiem que tot i que la versió amb dual-socket ens proporciona més GFlops, l'eficiència GFlops/euro és millor per la versió amb single-socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUs utilitzem, quina xarxa tenim, etc., podrem valorar si tenim suficient pressupost com per escollir la opció amb més GFlops. A més, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb l'opció dual-socket en podem posar el doble per cada node.
 
