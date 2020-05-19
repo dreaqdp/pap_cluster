@@ -4,26 +4,26 @@ Finalment, queda plantejar-nos l'últim element pel nostre clúster: les unitats
 
 \input{27_gpu_table.tex}
 
-En el mercat actual, hi ha principalment dos desenvolupadors de targetes gràfiques en mercat: NVIDIA i AMD. La recerca de GPUs s'ha centrat en models d'aquestes dues marques. Tradicionalment NVIDIA ha tingut la principal quota de mercat en l'entorn de la supercomputació, però últimament AMD està desenvolupant productes per a aquest mercat molt competitius amb NVIDIA.
+En el mercat actual hi ha principalment dos desenvolupadors de targetes gràfiques: NVIDIA i AMD. La recerca de GPUs s'ha centrat en models d'aquestes dues marques. Tradicionalment, NVIDIA ha tingut la principal quota de mercat en l'entorn de la supercomputació, però últimament AMD està desenvolupant productes per aquest nínxol que estan competint frec a frec amb els de NVIDIA.
 
 S'han buscat dos tipus de models per cada desenvolupador: un amb molta potència de càlcul i l'altre amb uns GFlops inferiors. L'explicació és que així ens podíem plantejar dos escenaris, un per cada tipus de model. 
-Els models amb molts GFlops els vam buscar pel cas de tenir només uns pocs nodes amb moltes GPUs, és a dir, concentrant la potència de càlculs.
-L'altre tipus de model, amb menys GFlops per unitat, es van escollir pel suposat escenari de tenir la potència de càlcul de la GPU en més nodes, o fins i tot en tots.
+Els models amb molts GFlops els vam buscar pel cas de tenir només uns pocs nodes amb moltes GPUs, és a dir, concentrant la potència de càlcul.
+L'altre tipus de model, amb menys GFlops per unitat, es va escollir pel suposat escenari de tenir la potència de càlcul de la GPU en més nodes, o fins i tot en tots.
 
 Aquests dos escenaris presenten avantatges i inconvenients. En el cas de tenir pocs nodes amb molts GFlops concentrats:
 \begin{itemize}
     \item Avantatges:
     \begin{itemize}
-        \item Menys nodes de 2U i més d'1U. Això permetria tenir més cores en el clúster i per tant més nodes per a escalar aplicacions o executar diverses aplicacions sense haver d'esperar recursos disponibles.
+        \item Menys nodes de 2U i més d'1U. Això permetria tenir més nuclis en el clúster i per tant més nodes per escalar aplicacions o executar diverses aplicacions sense haver d'esperar recursos disponibles.
     \end{itemize}
     \item Inconvenients:
     \begin{itemize}
         \item Els usuaris hauran de compartir nodes per poder accedir a les GPUs. 
-        \item En el cas que una aplicació utilitzi MPI i CUDA/openCL, es veurà limitada l'escalabilitat en nombre de ranks MPI perquè si tots llencen workloads de gràfiques, hauran d'estar en nodes amb gràfiques disponibles.
+        \item En el cas que una aplicació utilitzi MPI i CUDA/OpenCL, es veurà limitada l'escalabilitat en nombre de ranks MPI perquè si tots llencen workloads de gràfiques hauran d'estar en nodes amb gràfiques disponibles.
     \end{itemize}
 \end{itemize}
 
-En l'escenari de tenir més nodes amb targetes gràfiques, les avantatges i desavantatges passen a ser els inconvenients i les avantatges del cas anterior, respectivament.
+En l'escenari de tenir més nodes amb targetes gràfiques, els avantatges i desavantatges passen a ser els inconvenients i les avantatges del cas anterior, respectivament.
 
 Una diferència important entre NVIDIA i AMD és el model de programació amb el que es pot programar. 
 NVIDIA té un model de programació propietari, anomenat CUDA \cite{gpu_cuda}. És relativament senzill de programar amb aquest model. Per això, moltes aplicacions que estan optimitzades per a utilitzar gràfiques s'han programat amb CUDA i no amb OpenCL.
