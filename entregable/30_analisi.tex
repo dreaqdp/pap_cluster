@@ -4,10 +4,10 @@ Arribats a aquest punt, hem deixat moltes eleccions de components a l'aire ja qu
 
 Les combinacions de components que tenim són les següents:
 \begin{itemize}
-    \item {Nodes Single-Socket (CPU 7702) o Dual-Socket (CPU 7502)}.
+    \item {Nodes Single-Socket (\textit{CPU 7702}) o Dual-Socket (\textit{CPU 7502})}.
     \item {Nodes amb o sense gràfiques}.
-    \item {7 gràfiques diferents}.
-    \item {3 commutadors diferents amb 4 possibles combinacions de xarxa}.
+    \item {Set gràfiques diferents}.
+    \item {Tres commutadors diferents amb quatre possibles combinacions de xarxa}.
 \end{itemize}
 
 
@@ -43,7 +43,7 @@ S'ha considerat que els nodes que tenen gràfica ocupen tots els possibles slots
 
 En primer lloc, analitzem la taula en l'eix horitzontal. S'observa que els TFlops que ens garanteix utilitzar tres commutadors de trenta-sis ports i tres de quaranta són els mateixos. Això és degut a que amb els commutadors de trenta-sis ports ja aconseguim connectar tots els nodes que ens caben en els racks, i per tant augmentar el nombre de ports disponibles no ens permet afegir més nodes; la limitació és el nombre de Us. La millora d'utilitzar els commutadors de quaranta ports és que tenen una velocitat més bona, dos cents Gbits en comptes de cent. El preu puja, però ens ho podem permetre.
 
-Per altra banda, observem que amb sis commutadors de divuit ports aconseguim una eficiència GFlops/\$ més bona, tot i que no arribem a tants TFlops com amb altres opcions.
+Per altra banda, observem que amb sis commutadors de divuit ports aconseguim una eficiència GFlops/Dòllar més bona, tot i que no arribem a tants TFlops com amb altres opcions.
 
 Analitzant la taula en l'eix vertical, veiem que per qualsevol configuració la versió amb Dual-Socket ens dóna més TFlops amb una eficiència econòmica millor. Això pot ser degut en part a que els nodes amb gràfiques poden tenir-ne fins a vuit per node en comptes de quatre com en el cas del Single-Socket. Per tant, podem tenir més gràfiques utilitzant menys Us, deixant-ne més disponibles per a nodes sense gràfiques (1U).
 

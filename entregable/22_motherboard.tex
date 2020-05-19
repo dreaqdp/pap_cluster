@@ -1,4 +1,4 @@
-\subsection{Placa base}
+\subsection{Placa base}\label{sec:motherboard}
 
 Una vegada escollits dos processadors com a contrincants, hem començat a mirar quines plaques bases hi havia al mercat. Primerament, les hem anat buscant de manera individual i les que hem seleccionat es poden veure a la taula següent:
 
@@ -28,15 +28,15 @@ H12SST-PS \cite{mother5} & 64 & 6 Gbps & 8 & 2 & 3x16 & 3959.86 \cite{mother5_pr
 
 Com es pot veure, les diferències principals són el número de DIMS de memòria i els PCI-Express. No obstant, una vegada fetes les comparacions inicials, ens hem adonat que per algunes d'elles era excessivament complicat trobar el preu. Per exemple, els llocs on trobàvem els preus no és el mateix que on trobàvem les especificacions, per tant en alguns no estem segurs de que els preus siguin del tot realistes.
 
-Buscant els preus hem trobat una altra web \cite{webnodes} que ens permet crear un node seleccionant nosaltres els seus components. Hem vist que els tipus de node es diferencien inicialment entre aquells amb GPU i aquells sense GPU. Dins d'aquests dos grups trobem també els Dual-Socket i els Single-Socket.
+Buscant els preus hem trobat una altra web \cite{webnodes} que ens permet crear un node seleccionant nosaltres els seus components. Hem vist que els tipus de node es diferencien inicialment entre aquells amb GPU i aquells sense GPU. Dins d'aquests dos grups trobem també els dual-socket i els single-socket.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{img/webnodes.png}
-    \caption{Exemple de nodes que podem trobar a la web. A l'esquerra amb GPUs i a la dreta sense. Tots Single-Socket.}
+    \caption{Exemple de nodes que podem trobar a la web. A l'esquerra amb GPUs i a la dreta sense. Tots single-socket.}
 \end{figure}
 
-Com que el processador \textit{AMD EPYC 7702P} té 64 nuclis i l'\textit{AMD EPYC Rome 7502P} en té 32. En cas d'escollir un node amb suport per GPU, ocuparem 2 \textit{U}s en compte d'una de sola. En el cas dels nodes amb Dual-Socket, es poden suportar fins a 8 GPUs mentre que amb els Single-Socket només la meitat, 4.
+Com que el processador \textit{AMD EPYC 7702P} té seixanta-quatre nuclis i l'\textit{AMD EPYC Rome 7502P} en té trenta-dues. En cas d'escollir un node amb suport per GPU, ocuparem 2 \textit{U}s en compte d'una de sola. En el cas dels nodes amb Dual-Socket, es poden suportar fins a vuit GPUs mentre que amb els Single-Socket només la meitat, quatre.
 
 En la següent taula es veuen aquestes possibles combinacions. En el cas d'utilitzar un node amb GPUs no s'ha inclòs el preu de la pròpia GPU, ja que això dependrà de quina escollim més endavant. Per la mateixa raó, tampoc s'han exposat els GFflops de les versions amb GPU. En aquests preus tampoc s'inclouen els costos de les memòries i les targetes de xarxa.
 
@@ -61,5 +61,5 @@ Configuració & Nuclis & \begin{tabular}[c]{@{}c@{}}GFlops \\ CPU\end{tabular} &
     \end{adjustwidth}
 \end{table}
 
-Veiem que tot i que la versió amb Dual-Socket ens proporciona més GFlops, l'eficiència GFlops/euro és millor per la versió amb Single-Socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUs utilitzem, quina xarxa tenim, etc., podrem valorar si tenim suficient pressupost com per escollir la opció amb més GFlops. A més, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb l'opció Dual-Socket en podem posar el doble per cada node.
+Veiem que tot i que la versió amb dual-socket ens proporciona més GFlops, l'eficiència GFlops/euro és millor per la versió amb single-socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUs utilitzem, quina xarxa tenim, etc., podrem valorar si tenim suficient pressupost com per escollir la opció amb més GFlops. A més, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb l'opció dual-socket en podem posar el doble per cada node.
 
