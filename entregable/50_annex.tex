@@ -53,5 +53,62 @@ Les FP64 ens interessen perquè és el tamany usual dels \texttt{double} i així
 Les FP16 són interessant perquè en el món de l'AI (Artificial Intelligence) s'acostumen a utilitzar dades d'aquest tamany. Usualment no es necessita més precisió i així es poden enviar més quantitat de dades en un mateix espai de memòria que si fossin dades de 64 bits, el qual és important perquè el bottleneck habitual a l'utilitzar GPUs és la connexió entre el processador i la GPU (està limitada a la velocitat del PCIe).
 
 \subsection{Nodes}
+En aquesta fulla trobem les característiques que pot tenir el node, el seu preu i mètriques de rendiment.
 
+Es pren com a base la motherboard seleccionada per cada processador a l'apartat \ref{sec:motherboard}. En funció d'aquestes es calcula el cost que tindria no tenir cap GPU, tenir una o tenir-ne el màxim que permet la placa base. S'ha tingut en compte les 2 GPUs que més TFlops donen
 
+Estan marcades amb fons verd les combinacions de placa base i GPUs que més GFlops i GFlops/\$ donen.
+
+\subsection{Summary}
+Aquesta sheet conté un resum de quines han sigut les combinacions que fixat: processador i motherboard, targeta gràfica i tipus de switch; aconseguien més TFlops o GFlops/\$.
+
+En l'eix de les \texttt{X} estan tant els processadors com les possibles targetes gràfiques, aquests estan per ambdos processadors. En l'eix de les \texttt{Y} tenim el tipus de switch i en quin paràmetre ens fixem per trobar la millor combinació (TFlops o GFlops/\$ màxim).
+
+Per cada combinació es busca quina seria la seva configuració en nombre de nodes d'1 i 2 U, els TFlops totals, preu i GFlops/\$. La fila anomenada \texttt{column} és per facilitar la cerca dels altres paràmetres, per a no complicar excessivament les fòrmules de les altres cel·les.
+
+Per cada combinació de processador i GPU es marca a les files de \texttt{TFlops Total} en color blau quina és la que té el valor màxim. Les files de \texttt{Price} tenen el mínim presupost marcat amb color verd. Les files de \texttt{GFlops/\$} tenen el màxim en color taronja.
+
+\subsection{Summary X nintendos [Y ports]}
+Aquesta subsecció engloba les següents fulles:
+\begin{itemize}
+    \item Summary 6 nintendos
+    \item Summary 7 nintendos
+    \item Summary 2 nintendos 36 ports
+    \item Summary 3 nintendos 36 ports
+    \item Summary 2 nintendos 40 ports
+    \item Summary 3 nintendos 40 ports
+\end{itemize}
+
+Durant la realització d'aquest treball vam fer la broma que costava pronunciar \textit{switches} i que per tant anomenariem els communtadors \texttt{nintendos} (switch $>$ Nintendo Switch $>$ nintendo). Per aquest motiu, vam començar a anomenar les fulles amb aquests noms.
+Actualment, el spreadsheet és tant gran i tantes coses depenen les unes de les altres, que si canviem el nom de les fulles no pot aplicar bé els canvis de noms i se'ns trenca tot. És per aquest motiu que hem decidit mantenir els noms amb \texttt{nintendo}.
+
+Totes les fulles segueixen la mateixa estructura i idea simplement canviant el tipus de communtador, o nintendo. Aquest canvi implica una diferència en el nombre de nodes que es poden tenir.
+
+En l'eix de les \texttt{X} trobem el nombre de nodes d'1 i 2 U. Els nodes d'1 U depenen del nombre de nodes de 2 U. Els d'1 U es calculen realitzant el mínim entre: el nombre de connexions totals dels switches menys els nodes de 2 U, i l'espai màxim (84 U) menys l'espaiu que ocupen els nodes de 2 U i els commutadors; és a dir, el mínim entre les connexions disponibles i l'espai disponible. 
+
+En l'eix de les \texttt{Y} trobem els dos possibles procesadors, i per cadascun les 7 possibles targetes gràfiques. A més, per cada CPU calculem quants TFlops obtenim per part de tots els processadors que podem incorporar, fila \texttt{TFlops cpus}, i quants TFlops per node de 2 U podem obtenir per part de les gràfiques tenint en compte la limitació del 30\% comentada a la secció \ref{sec:intro}, fila \texttt{TFlops/node 2U}.
+
+Per cada targeta gràfica s'ha calculat:
+\begin{itemize}
+    \item Fila \texttt{Max ideal gpu}\\
+        Màxim nombre de GPUs que podem tenir per node de 2 U, simplement tenint en compte els TFlops que podem obtenir per part de GPUs i els TFlops de FP64 de la GPU en qüestió.
+
+    \item Fila \texttt{TFlops gpus}\\
+        TFlops reals que podem aconseguir per part de les targetes gràfiques, tenint en compte la limitació del nombre de GPUs que podem encavir en funció de la placa base.\\
+        El màxim de la fila està marcat amb el fons de la cel·la de color blau.
+        
+    \item Fila \texttt{TFlops total}\\
+        TFlops del clúster, suma dels TFlops de les CPUs i les GPUs. \\
+        El màxim de la fila està marcat amb el fons de la cel·la de color blau.
+
+    \item Fila \texttt{\% GFlops GPU}\\
+        Percentatge de GFlops que provenen dels acceleradors, per tal de coneixer quant ens ajustem a la limitació del 30\%.
+
+    \item Fila \texttt{Price (\$)}\\
+        Cost total del cluster. Inclou el cost dels processadors, plaques base, memòries RAM, targetes de xarxa, commutadors i targetes gràfiques. \\
+        En el cas que el cost superi el pressupost màxim en dòllars, la cel·la es marca amb color vermell.
+
+    \item Fila \texttt{GFlops/(\$)}\\
+        GFlops per dòllar del clúster.\\
+        El màxim de la fila està marcat amb el fons de la cel·la de color taronja.
+\end{itemize}
