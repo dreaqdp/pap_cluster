@@ -1,32 +1,14 @@
 \subsection{Xarxa d'interconnexió}
 
-Ja que tenim un nombre relativament reduït d'unitats, i volem dedicar tantes unitats com 
-sigui possible a nodes de còmput, volem, per tant reduir el nombre d'unitats que dediquem
-als commutadors. Per aconseguir aquesta fita, necessitem que cada commutador tingui el màxim
+Entenent que tenim un nombre relativament reduït d'unitats i que volem dedicar tantes unitats com 
+sigui possible a nodes de còmput, volem reduir el nombre d'unitats que dediquem als commutadors. Per aconseguir aquesta fita, necessitem que cada commutador tingui el màxim
 nombre de ports per unitat.
-Com a efecte col·lateral d'aquesta estratègia, ens veiem amb un sistema que pràcticament es
-veu forçat a utilitzar una topologia de xarxa de tipus malla.
+Com efecte col·lateral d'aquesta estratègia ens veiem amb un sistema que pràcticament es veu forçat a utilitzar una tipologia de xarxa de tipus malla.
 
-Pel que fa a distribuidors, ens vam centrar en Mallanoxi Technologies. A la pàgina web
-\cite{mellanox-web} de la companyia, vam trobar commutaadors InfiniBand, de diferents preus
-i velocitats (com mes ports mes velocitat). A la tala \ref{tab:intercon} hem recollit els 
+Pel que fa a distribuïdors, ens vam centrar en \textit{Mallanox Technologies}. A la pàgina web
+\cite{mellanox-web} de la companyia, vam trobar commutadors \textit{InfiniBand} de diferents preus
+i velocitats (com més ports major és la velocitat). A la taula \ref{tab:intercon} hem recollit els 
 diferents models candidats a ser utilitzats en el nostre sistema.
-
-La quantitat de commutadors que utilitzem en el nostre sistema es un factor clau, que marca,
-tant el preu, com el rendiment, d'aquest. D'altre banda, pero, afecta diferent als dos parametres,
-anteriors en funció dels altres components. Per tant no podem determinar encara quina sera la
-millor configuració. No obstant si que podem reduir el rang de configuracions, per tal de que
-l'analisis sigui mes ame.
-
-Ja que utilitzem una topologia de tipus malla completa, el nombre de conneccions $C$ a nodes de comput
-que podra tennir la xarxa ve marcat per el nombre de ports $P$ del que disposa cada commutador aixi
-com el nombre de commutadors $N$ que tingui el sistema. Es facil deduir que el nombre de conneccions
-que podra haver-hi al sistema ve determinat per $C = N \times ( P - N + 1 ) = -N^2 + N(P+1)$
-\begin{itemize}
-  \item 
-  \item Per el cas del model MSX6018F-1SFS, ja que tenim 18 ports, el nombre de nodes que
-    podem connectar-hi, ve determinat
-\end{itemize}
 
 \begin{table}[H]
 \begin{adjustwidth}{-.5in}{-.5in}  
@@ -49,3 +31,27 @@ que podra haver-hi al sistema ve determinat per $C = N \times ( P - N + 1 ) = -N
     \end{center}
 \end{adjustwidth}
 \end{table}
+
+La quantitat de commutadors que utilitzem en el nostre sistema és un factor clau que marca,
+tan el preu, com el rendiment, d'aquest. D'altre banda, però, afecta diferent als dos paràmetres,
+anteriors en funció dels altres components. Per tan no podem determinar encara quina serà la
+millor configuració. No obstant, si que podem reduir el rang de configuracions, per tal que
+l'anàlisi sigui més amè.
+
+Ja que utilitzem una topologia de tipus malla completa, el nombre de connexions $C$ a nodes de comput
+que podrà tenir la xarxa ve marcat per el nombre de ports $P$ del que disposa cada commutador així
+com el nombre de commutadors $N$ que tingui el sistema. Es fàcil deduir que el nombre de connexions
+que podrà haver-hi al sistema ve determinat per $C = N \times ( P - N + 1 ) = -N^2 + N(P+1)$
+\begin{itemize}
+  \item 
+  \item Per el cas del model MSX6018F-1SFS, ja que tenim 18 ports, el nombre de nodes que
+    podem connectar-hi, ve determinat
+\end{itemize}
+
+\begin{figure}
+    \centering
+ %   \includegraphics{img/connections.png}
+    \caption{Caption}
+    \label{fig:connections}
+\end{figure}
+

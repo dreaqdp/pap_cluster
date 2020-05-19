@@ -1,4 +1,31 @@
 \section{Clúster final}
+Veient les opcions presentades en la secció anterior,  hem decidit escollir la versió que ens dóna més TFlops. Aquesta és la que té nodes Dual-Socket amb el processador 7502. Hem escollit comprar els commutadors de 40 ports ja que ens ofereixen el doble de velocitat que els de 36 (200Gbits i 100Gbits respectivament).
+
+Més concretament, aquesta és la configuració que hem escollit:
+\begin{table}[h!]
+\begin{tabular}{|l|l|}
+\hline
+{\color[HTML]{000000} CPU}         & {\color[HTML]{000000} Dual-Socket AMD EPYC Rome 7502P} \\ \hline
+Cores/Node                                       & 128                                             \\ \hline
+{\color[HTML]{000000} GPU}                       & {\color[HTML]{000000} AMD Radeon Instinct MI50} \\ \hline
+\#GPUs                                           & 12 (2 nodes amb 6 GPUs)                         \\ \hline
+{\color[HTML]{000000} Memòria}     & {\color[HTML]{000000} Kingston KSM29RS4 DDR4 2933Hz}   \\ \hline
+{\color[HTML]{000000} Memòries/node}             & {\color[HTML]{000000} 8 DIMMS de 16GB}          \\ \hline
+{\color[HTML]{000000} Commutadors} & {\color[HTML]{000000} Mellanox MQM8700-HS2F, 200Gbits} \\ \hline
+{\color[HTML]{000000} \#Commutadors}             & {\color[HTML]{000000} 3}                        \\ \hline
+{\color[HTML]{000000} \#Nodes sense GPU (1U)}    & {\color[HTML]{000000} 77}                       \\ \hline
+{\color[HTML]{000000} \#Nodes amb GPU (2U)}      & {\color[HTML]{000000} 2}                        \\ \hline
+{\color[HTML]{000000} Us de nodes}               & {\color[HTML]{000000} 81}                       \\ \hline
+{\color[HTML]{000000} Us de nodes + commutadors} & {\color[HTML]{000000} 84}                       \\ \hline
+{\color[HTML]{000000} TFLOPS CPU}                & {\color[HTML]{000000} 197.5}                    \\ \hline
+{\color[HTML]{000000} TFLOPS GPU}                & {\color[HTML]{000000} 80.46}                    \\ \hline
+{\color[HTML]{000000} TFLOPS Totals}             & {\color[HTML]{000000} 277.96}                   \\ \hline
+{\color[HTML]{000000} TFLOPS GPU/Totals}         & {\color[HTML]{000000} 0.289}                    \\ \hline
+{\color[HTML]{000000} COST (\$)}                 & {\color[HTML]{000000} 1123147.449}              \\ \hline
+{\color[HTML]{000000} GFLOPS / \$}               & {\color[HTML]{000000} 0.253}                    \\ \hline
+\end{tabular}
+\caption
+\end{table}
 
 
 \subsection{Roofline}
