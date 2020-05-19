@@ -1,7 +1,32 @@
 \subsection{Xarxa d'interconnexió}
 
+Ja que tenim un nombre relativament reduït d'unitats, i volem dedicar tantes unitats com 
+sigui possible a nodes de còmput, volem, per tant reduir el nombre d'unitats que dediquem
+als commutadors. Per aconseguir aquesta fita, necessitem que cada commutador tingui el màxim
+nombre de ports per unitat.
+Com a efecte col·lateral d'aquesta estratègia, ens veiem amb un sistema que pràcticament es
+veu forçat a utilitzar una topologia de xarxa de tipus malla.
 
+Pel que fa a distribuidors, ens vam centrar en Mallanoxi Technologies. A la pàgina web
+\cite{mellanox-web} de la companyia, vam trobar commutaadors InfiniBand, de diferents preus
+i velocitats (com mes ports mes velocitat). A la tala \ref{tab:intercon} hem recollit els 
+diferents models candidats a ser utilitzats en el nostre sistema.
 
+La quantitat de commutadors que utilitzem en el nostre sistema es un factor clau, que marca,
+tant el preu, com el rendiment, d'aquest. D'altre banda, pero, afecta diferent als dos parametres,
+anteriors en funció dels altres components. Per tant no podem determinar encara quina sera la
+millor configuració. No obstant si que podem reduir el rang de configuracions, per tal de que
+l'analisis sigui mes ame.
+
+Ja que utilitzem una topologia de tipus malla completa, el nombre de conneccions $C$ a nodes de comput
+que podra tennir la xarxa ve marcat per el nombre de ports $P$ del que disposa cada commutador aixi
+com el nombre de commutadors $N$ que tingui el sistema. Es facil deduir que el nombre de conneccions
+que podra haver-hi al sistema ve determinat per $C = N \times ( P - N + 1 ) = -N^2 + N(P+1)$
+\begin{itemize}
+  \item 
+  \item Per el cas del model MSX6018F-1SFS, ja que tenim 18 ports, el nombre de nodes que
+    podem connectar-hi, ve determinat
+\end{itemize}
 
 \begin{table}[H]
 \begin{adjustwidth}{-.5in}{-.5in}  
@@ -12,14 +37,15 @@
             \begin{tabular}{l||c|c|c}
                 \hline
                 \cellcolor[HTML]{FFFFFF}Model         & Ports & Speed (Gb/s) & Preu (\$) \\ \hline \hline \rowcolor[HTML]{EFEFEF}
-                MSX6018F-1SFS & 18      & 56           & 14791.00  \\ 
-                MSB7800-ES2F  & 36      & 100          & 25633.00  \\ \rowcolor[HTML]{EFEFEF}
-                MQM8700-HS2F  & 40      & 200          & 29629.00  \\ \hline
+                MSX6012F-2BFS\cite{mellanox_msx6012f-2bfs} & 12      & 56           &  9309.00  \\ 
+                MSX6018F-1SFS\cite{mellanox_msx6018f-1sfs} & 18      & 56           & 14791.00  \\ \rowcolor[HTML]{EFEFEF} 
+                MSB7800-ES2F\cite{mellanox_msb7800-es2f}  & 36      & 100          & 25633.00  \\ 
+                MQM8700-HS2F\cite{mellanox_mqm8700-hs2f}  & 40      & 200          & 29629.00  \\ \hline
             \end{tabular}
         \end{centering}
         }
     \caption{Comparació entre les diferents configuracions dels nodes.}
-    \label{tab:cpu_cmp}
+    \label{tab:intercon}
     \end{center}
 \end{adjustwidth}
 \end{table}
