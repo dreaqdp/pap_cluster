@@ -4,20 +4,27 @@ Una de les restriccions del disseny es que hem de tenir 2GB de RAM per cada core
 
 Hem decidit avaluar tres combinacions diferents per arribar a aquests 128GB. La primera és amb 16 DIMMs de 8GB, la segona amb 8 DIMMs de 16GB i per últim 4 DIMMs de 32GB. És més econòmic tenir menys DIMMs amb memòries de més capacitat, però limita el paral·lelisme per accedir-hi. Un altre aspecte a tenir en compte és que quants menys DIMMs utilitzem, més ens podrem expandir en un futur comprant més memòria.
 
-També hem comparat les opcions de comprar memòria ECC (feta expressament per servidors) o NO-ECC. La diferència de preu és notable però creiem que val la pena, considerant que el pressupost no és ajustat. No hem aconseguit trobar memòries ECC de 3200Hz. En la taula següent es pot observar les memòries que hem comparat.
+També hem comparat les opcions de comprar memòria ECC (feta expressament per servidors) o NO-ECC. La diferència de preu és notable però creiem que val la pena, considerant que el pressupost no és ajustat. No hem aconseguit trobar memòries ECC de 3200Hz. En la taula següent es pot observar les memòries que hem comparat:
 
-\begin{table}[]
-\begin{tabular}{|l|l|l|l|l|l|l|l}
+\begin{table}[H]
+\begin{adjustwidth}{-1.0in}{-1.0in}
+\begin{center}
+\begin{tabular}{l||c|c|c|c|c|c|c}
 \hline
-\cellcolor[HTML]{FFFFFF}NOM & ECC & GB & \begin{tabular}[c]{@{}l@{}}FREQ\\ (Hz)\end{tabular} & \# & Latencia & \begin{tabular}[c]{@{}l@{}}Preu(\euro)\\ (1u)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Preu (\euro)\\ (Total) \end{tabular} \\ \hline
-Kingston KSM29RS8\cite{mem1} & SI & 8 & 2993 & 16 & CL21 & 64.9 & 1038.4 \\ \hline
-Kingston KSM29RS4\cite{mem2} & SI & 16 & 2993 & 8 & CL21 & 122.9 & 983.2 \\ \hline
-Kingston KSM29RD4\cite{mem3} & SI & 32 & 2993 & 4 & CL21 & 242.9 & 971.6 \\ \hline
-Kingston HyperX Impact\cite{mem4} & NO & 8 & 3200 & 16 & CL20 & 64.99 & 1039.84 \\ \hline
-Kingston HyperX Impact\cite{mem5} & NO & 16 & 3200 & 8 & CL20 & 107.99 & 863.92 \\ \hline
-Kingston HyperX Fury Black\cite{mem6} & NO & 32 & 3200 & 4 & CL16 & 169.0 & 676 \\ \hline
+\cellcolor[HTML]{FFFFFF}Memòria RAM & ECC & GB & \begin{tabular}[c]{@{}c@{}}Freq.\\ (Hz)\end{tabular} & \# & Latència & \begin{tabular}[c]{@{}c@{}}Preu (\euro)\\ (1u)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Preu (\euro)\\ (total) \end{tabular} \\ \hline \hline
+\rowcolor[HTML]{EFEFEF}
+Kingston KSM29RS8 \cite{mem1} & SI & 8 & 2993 & 16 & CL21 & 64.9 & 1038.4 \\
+Kingston KSM29RS4 \cite{mem2} & SI & 16 & 2993 & 8 & CL21 & 122.9 & 983.2 \\
+\rowcolor[HTML]{EFEFEF}
+Kingston KSM29RD4 \cite{mem3} & SI & 32 & 2993 & 4 & CL21 & 242.9 & 971.6 \\
+Kingston HyperX Impact \cite{mem4} & NO & 8 & 3200 & 16 & CL20 & 64.99 & 1039.84 \\
+\rowcolor[HTML]{EFEFEF}
+Kingston HyperX Impact \cite{mem5} & NO & 16 & 3200 & 8 & CL20 & 107.99 & 863.92 \\
+Kingston HyperX Fury Black \cite{mem6} & NO & 32 & 3200 & 4 & CL16 & 169.0 & 676 \\ \hline
 \end{tabular}
-\caption{Comparació de les diferents memòries estudiades}
+\caption{Comparació de les diferents memòries estudiades.}
+\end{center}
+\end{adjustwidth}
 \end{table}
 
 Hem decidit decantar-nos per la versió amb 8 DIMMs de 16GB. Creiem que té un bon balanceig entre paral·lelisme, possible extensió i preu. Com estem dins el pressupost, hem escollit la versió ECC.
