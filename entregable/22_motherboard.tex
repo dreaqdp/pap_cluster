@@ -30,13 +30,13 @@ Com es pot veure, les diferències principals són el número de DIMS de memòri
 
 Buscant els preus hem trobat una altra web \cite{webnodes} que ens permet crear un node seleccionant nosaltres els seus components. Hem vist que els tipus de node es diferencien inicialment entre aquells amb GPU i aquells sense GPU. Dins d'aquests dos grups trobem també els dual-socket i els single-socket.
 
+Com que el processador \textit{AMD EPYC 7702P} té seixanta-quatre nuclis i l'\textit{AMD EPYC Rome 7502P} en té trenta-dues. En cas d'escollir un node amb suport per GPU, ocuparem 2 \textit{U}s en compte d'una de sola. En el cas dels nodes amb Dual-Socket, es poden suportar fins a vuit GPUs mentre que amb els Single-Socket només la meitat, quatre.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{img/webnodes.png}
     \caption{Exemple de nodes que podem trobar a la web. A l'esquerra amb GPUs i a la dreta sense. Tots single-socket.}
 \end{figure}
-
-Com que el processador \textit{AMD EPYC 7702P} té seixanta-quatre nuclis i l'\textit{AMD EPYC Rome 7502P} en té trenta-dues. En cas d'escollir un node amb suport per GPU, ocuparem 2 \textit{U}s en compte d'una de sola. En el cas dels nodes amb Dual-Socket, es poden suportar fins a vuit GPUs mentre que amb els Single-Socket només la meitat, quatre.
 
 En la següent taula es veuen aquestes possibles combinacions. En el cas d'utilitzar un node amb GPUs no s'ha inclòs el preu de la pròpia GPU, ja que això dependrà de quina escollim més endavant. Per la mateixa raó, tampoc s'han exposat els GFflops de les versions amb GPU. En aquests preus tampoc s'inclouen els costos de les memòries i les targetes de xarxa.
 
