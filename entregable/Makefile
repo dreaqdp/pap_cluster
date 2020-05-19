@@ -7,7 +7,7 @@ compile:
 clean:
 	latexmk -c
 
-clean_all:
+clean_all: clean
 	latexmk -C
 
 run: *.pdf
