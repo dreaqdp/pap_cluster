@@ -12,7 +12,9 @@ Les combinacions de components que tenim són les següents:
 
 
 
-Per a cada una de les xarxes (nombre i tipus de commutador) s'ha estudiat quina és la combinació de nodes sense gràfica (1U) i amb gràfica (2U) que ens maximitza els TFLOPS, complint la restricció del percentatge dels TFLOPS que poden representar de les gràfiques. S'ha considerat que els nodes que tenen gràfica ocupen tots els possibles slots per aquestes, i així s'optimitza millor l'espai. En la següent taula es poden veure els resultats resumits (és a dir, per cada combinació de nodes dins la xarxa s'ha mostrat només la que otorga més TFLOPS), però si es vol veure totes les possibles combinacions es pot anar a l'annex.
+Per a cada una de les xarxes (nombre i tipus de commutador) s'ha estudiat quina és la combinació de nodes sense gràfica (1U) i amb gràfica (2U) que ens maximitza els TFLOPS. Cada combinació dóna uns TFLOPs diferents i per tant té un límit de gràfiques (seguint les restriccions del disseny) diferent. Aquest estudi s'ha hagut de realitzar per cada un dels dos processadors escollits.
+
+S'ha considerat que els nodes que tenen gràfica ocupen tots els possibles slots per aquestes, i així s'optimitza millor l'espai. En la següent taula es poden veure els resultats resumits (és a dir, per cada combinació de nodes dins la xarxa s'ha mostrat només la que otorga més TFLOPS), però si es vol veure totes les possibles combinacions es pot anar a l'annex.
 
 \begin{table}[H]
 \begin{adjustwidth}{-1.0in}{-1.0in}
@@ -31,17 +33,17 @@ Per a cada una de les xarxes (nombre i tipus de commutador) s'ha estudiat quina 
 \multicolumn{1}{l|}{{\color[HTML]{000000} }} & \multicolumn{1}{l||}{\color[HTML]{000000} Nodes 2U} & {\color[HTML]{000000} 2} & {\color[HTML]{000000} 2} & {\color[HTML]{000000} 2} & {\color[HTML]{000000} 2} \\ 
 \multicolumn{1}{l|}{{\color[HTML]{000000} }} & \multicolumn{1}{c||} {\cellcolor[HTML]{EFEFEF} Gràfiques} & {\cellcolor[HTML]{EFEFEF} \begin{tabular}[c]{@{}l@{}}AMD Radeon\\ Instinct MI50\end{tabular}} & {\cellcolor[HTML]{EFEFEF} \begin{tabular}[c]{@{}l@{}}NVIDIA\\ tesla V100\end{tabular}} & {\cellcolor[HTML]{EFEFEF} \begin{tabular}[c]{@{}l@{}}AMD Radeon\\ Instinct MI50\end{tabular}} & {\cellcolor[HTML]{EFEFEF} \begin{tabular}[c]{@{}l@{}}AMD Radeon\\ Instinct MI50\end{tabular}} \\
 \multicolumn{1}{l|}{{\color[HTML]{000000} }} & \multicolumn{1}{c||} {\color[HTML]{000000} TFlops} & {\color[HTML]{000000} 270.46} & {\color[HTML]{000000} 258.16} & {\color[HTML]{000000} 277.96} & {\color[HTML]{000000} 277.96} \\
-\multicolumn{1}{l|}{{\color[HTML]{000000} }} & \multicolumn{1}{c||} {\cellcolor[HTML]{EFEFEF} Preu (\euro)} & {\cellcolor[HTML]{EFEFEF} 983231.2} & {\cellcolor[HTML]{EFEFEF} 1007763} & {\cellcolor[HTML]{EFEFEF} 1034778.8} & {\cellcolor[HTML]{EFEFEF} 1034778.8} \\ 
-\multicolumn{1}{l|}{\multirow{-6}{*}{{\color[HTML]{000000} \begin{tabular}[c]{@{}l@{}}Dual-Socket\\ AMD-7502\end{tabular}}}} & \multicolumn{1}{c||} {\color[HTML]{000000} Gflops/\euro} & {\color[HTML]{000000} 0.282} & {\color[HTML]{000000} 0.262} & {\color[HTML]{000000} 0.275} & {\color[HTML]{000000} 0.255} \\ \hline
+\multicolumn{1}{l|}{{\color[HTML]{000000} }} & \multicolumn{1}{c||} {\cellcolor[HTML]{EFEFEF} Preu (\euro)} & {\cellcolor[HTML]{EFEFEF} 983231.2} & {\cellcolor[HTML]{EFEFEF} 1007763} & {\cellcolor[HTML]{EFEFEF} 1034778.8} & {\cellcolor[HTML]{EFEFEF} 1390977.2} \\ 
+\multicolumn{1}{l|}{\multirow{-6}{*}{{\color[HTML]{000000} \begin{tabular}[c]{@{}l@{}}Dual-Socket\\ AMD-7502\end{tabular}}}} & \multicolumn{1}{c||} {\color[HTML]{000000} Gflops/\euro} & {\color[HTML]{000000} 0.282} & {\color[HTML]{000000} 0.262} & {\color[HTML]{000000} 0.275} & {\color[HTML]{000000} 0.200} \\ \hline
 \end{tabular}
 \caption{Mostra de les diverses combinacions valorades.}
 \end{center}
 \end{adjustwidth}
 \end{table}
 
-En primer lloc, analitzem la taula en el eix horitzontal. S'observa que els TFLOPS que ens dóna utilitzar 3 commutadors de 36 ports i 3 de 40 són els mateixos. Això es perquè amb la primera opció ja tenim suficients ports com per emplenar els racks amb tots els nodes que hi caben. La millora d'utilizar els commutadors de 40 ports és que tenen una velocitat més bona, 200Gbits en comptes de 100. El preu puja, però ens ho podem permetre.
+En primer lloc, analitzem la taula en el eix horitzontal. S'observa que els TFLOPS que ens dóna utilitzar 3 commutadors de 36 ports i 3 de 40 són els mateixos. Això és degut a que amb els communtadors de 36 ports ja aconseguim connectar tots els nodes que ens caben en els racks, i per tant augmentar el nombre de ports disponibles no ens permet afegir més nodes; la limitació és el nombre de Us. La millora d'utilizar els commutadors de 40 ports és que tenen una velocitat més bona, 200Gbits en comptes de 100. El preu puja, però ens ho podem permetre.
 
-Per altra banda, observem que amb 6 commutadors de 18 ports aconseguir una eficiència Gflops/\euro més bona, tot i que no arribem a tants TFLOPS com amb altres opcions.
+Per altra banda, observem que amb 6 commutadors de 18 ports aconseguir una eficiència Gflops/\euro  més bona, tot i que no arribem a tants TFLOPS com amb altres opcions.
 
 Analitzant la taula en l'eix vertical, veiem que per qualsevol configuració la versió amb Dual-Socket ens dóna més TFLOPS amb una eficiència econòmica millor. Això pot ser degut en part a que els nodes amb gràfiques poden tenir-ne fins a 8 per node en comptes de 4 com en el cas del Single-Socket. Per tant, podem tenir més gràfiques utilitzant menys Us, deixant-ne més disponibles per a nodes sense gràfiques (1U).
 
