@@ -4,40 +4,39 @@ Finalment, queda plantejar-nos l'últim element pel nostre clúster: les unitats
 
 \input{27_gpu_table.tex}
 
-En el mercat actual, hi ha principalment dos desenvolupadors de targetes gràfiques en mercat: NVIDIA i AMD. La recerca de GPUs s'ha centrat en models d'aquestes dues marques. Tradicionalment NVIDIA ha tingut la principal quota de mercat en l'entorn de la supercomputació, però últimament AMD està desenvolupant productes per a aquest mercat molt competitius amb NVIDIA.
+En el mercat actual hi ha principalment dos desenvolupadors de targetes gràfiques: NVIDIA i AMD. La recerca de GPUs s'ha centrat en models d'aquestes dues marques. Tradicionalment, NVIDIA ha tingut la principal quota de mercat en l'entorn de la supercomputació, però últimament AMD està desenvolupant productes per aquest nínxol que estan competint frec a frec amb els de NVIDIA.
 
 S'han buscat dos tipus de models per cada desenvolupador: un amb molta potència de càlcul i l'altre amb uns GFlops inferiors. L'explicació és que així ens podíem plantejar dos escenaris, un per cada tipus de model. 
-Els models amb molts GFlops els vam buscar pel cas de tenir només uns pocs nodes amb moltes GPUs, és a dir, concentrant la potència de càlculs.
-L'altre tipus de model, amb menys GFlops per unitat, es van escollir pel suposat escenari de tenir la potència de càlcul de la GPU en més nodes, o fins i tot en tots.
+Els models amb molts GFlops els vam buscar pel cas de tenir només uns pocs nodes amb moltes GPUs, és a dir, concentrant la potència de càlcul.
+L'altre tipus de model, amb menys GFlops per unitat, es va escollir pel suposat escenari de tenir la potència de càlcul de la GPU en més nodes, o fins i tot en tots.
 
 Aquests dos escenaris presenten avantatges i inconvenients. En el cas de tenir pocs nodes amb molts GFlops concentrats:
 \begin{itemize}
     \item Avantatges:
     \begin{itemize}
-        \item Menys nodes de 2U i més d'1U. Això permetria tenir més cores en el clúster i per tant més nodes per a escalar aplicacions o executar diverses aplicacions sense haver d'esperar recursos disponibles.
+        \item Menys nodes de 2U i més d'1U. Això permetria tenir més nuclis en el clúster i per tant més nodes per escalar aplicacions o executar diverses aplicacions sense haver d'esperar recursos disponibles.
     \end{itemize}
     \item Inconvenients:
     \begin{itemize}
         \item Els usuaris hauran de compartir nodes per poder accedir a les GPUs. 
-        \item En el cas que una aplicació utilitzi MPI i CUDA/openCL, es veurà limitada l'escalabilitat en nombre de ranks MPI perquè si tots llencen workloads de gràfiques, hauran d'estar en nodes amb gràfiques disponibles.
+        \item En el cas que una aplicació utilitzi MPI i CUDA/OpenCL, es veurà limitada l'escalabilitat en nombre de ranks MPI perquè si tots llencen workloads de gràfiques hauran d'estar en nodes amb gràfiques disponibles.
     \end{itemize}
 \end{itemize}
 
-En l'escenari de tenir més nodes amb targetes gràfiques, les avantatges i desavantatges passen a ser els inconvenients i les avantatges del cas anterior, respectivament.
+En l'escenari de tenir més nodes amb targetes gràfiques, els avantatges i desavantatges anteriorment explicats s'inverteixen i esdevenen, respectivament, els inconvenients i avantatges per aquest escenari alternatiu.
 
-Una diferència important entre NVIDIA i AMD és el model de programació amb el que es pot programar. 
-NVIDIA té un model de programació propietari, anomenat CUDA \cite{gpu_cuda}. És relativament senzill de programar amb aquest model. Per això, moltes aplicacions que estan optimitzades per a utilitzar gràfiques s'han programat amb CUDA i no amb OpenCL.
+Una diferència important entre NVIDIA i AMD és el model de programació amb el que es pot programar. NVIDIA té un model de programació propietari, anomenat CUDA \cite{gpu_cuda}. És relativament senzill de programar amb aquest model. Per això, moltes aplicacions que estan optimitzades per a utilitzar gràfiques s'han programat amb CUDA i no amb OpenCL.
 
-En canvi, OpenCL és un model de programació obert per sistemes heterogenis \cite{gpu_opencl}. La diferència amb CUDA és que no només pot llençar workloads de feina a gràfiques, sinó que a qualsevol element de comput del sistema com altres cores o FPGAs (Field-Programmable Gate Array). A més, és més complicat de programar
-Aquest model de programació paral·lela no és tant senzill d'utilitzar com CUDA i és menys utilitzat.
+En canvi, OpenCL és un model de programació obert per sistemes heterogenis \cite{gpu_opencl}. La diferència amb CUDA és que no només pot llençar workloads de feina a gràfiques, sinó que ho pot fet a qualsevol element de comput del sistema, com altres nuclis o FPGAs (Field-Programmable Gate Array). A més, és més complicat de programar. %i ja està?
+Aquest model de programació paral·lela no és tan senzill d'utilitzar com CUDA i, de retruc, és menys utilitzat.
 
-Les targetes gràfiques d'NVIDIA poden executar tant CUDA com OpenCL, però la performance amb OpenCL és inferior a la que es pot obtenir amb CUDA. En canvi, les GPUs d'AMD es poden programar amb OpenCL i no amb CUDA. 
+Les targetes gràfiques d'NVIDIA poden executar tan CUDA com OpenCL, però el rendiment amb OpenCL és inferior a la que es pot obtenir amb CUDA. En canvi, les GPUs d'AMD es poden programar amb OpenCL i no amb CUDA. 
 Això representa una diferencia important, ja que aplicacions que només estiguin programades amb CUDA no podran fer ús de GPUs AMD.
 
-D'aquest component no farem cap preselecció perquè dependrà de diversos factors quina targeta gràfica escollim. Aquests factors són: 
+D'aquest component en no farem cap preselecció perquè dependrà de diversos factors. Aquests, fonamentalment són: 
 \begin{itemize}
-    \item Processador: en funció del processador tindrem més GFlops o menys, per tant els GFlops procedents d'acceleradors seran majors o menors, sempre mantenint-nos dins del límit de que màxim el 30\% dels GFlops del clúster poden provenir d'acceleradors.
-    \item Xarxa d'interconnexió: la quantitat de nodes que es puguin connectar ens permetrà tenir més o menys nodes de 2U, és a dir, nodes amb GPUs. Per exemple, si tenim una xarxa amb pocs ports i queden Us al rack sense connexions, es pot optar per utilizar nodes que ocupin més espai (nodes amb gràfiques), aprofitant al màxim les connexions i l'espai.
+    \item Processador: en funció del processador tindrem més GFlops o menys, per tant els GFlops procedents d'acceleradors seran majors o menors, sempre mantenint-nos dins del límit d'un 30\% dels GFlops del clúster que poden provenir d'acceleradors.
+    \item Xarxa d'interconnexió: la quantitat de nodes que es puguin connectar ens permetrà tenir més o menys nodes de 2U, és a dir, nodes amb GPUs. Per exemple, si tenim una xarxa amb pocs ports i queden Us al rack sense connexions, es pot optar per utilitzar nodes que ocupin més espai (nodes amb gràfiques), aprofitant al màxim les connexions i l'espai.
 \end{itemize}
 
 
