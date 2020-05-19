@@ -1,7 +1,9 @@
 \section{Clúster final}
-Veient les opcions presentades en la secció anterior,  hem decidit escollir la versió que ens dóna més TFlops. Aquesta és la que té nodes Dual-Socket amb el processador 7502. Hem escollit comprar els commutadors de 40 ports ja que ens ofereixen el doble de velocitat que els de 36 (200 Gbits i 100 Gbits respectivament).
+Veient les opcions presentades en la secció anterior,  hem decidit escollir la versió que ens dóna més TFlops. Aquesta és la que té nodes dual-socket amb el processador \textit{7502}. Hem escollit comprar els commutadors de quaranta ports ja que ens ofereixen el doble de velocitat que els de trenta-sis (200 Gbits i 100 Gbits respectivament).
 
-Podem veure que el percentatge de TFlops de les gràfiques respecte el total és 0.289. Aquest número s'aconseguia amb 12 GPUs, posant-ne 6 en dos nodes. Com els nodes tenen 8 slots per gràfiques, podriem afegir-ne 4 gràfiques amb menys TFlops i intentar apropar-nos al 
+Podem veure que el percentatge de TFlops de les gràfiques respecte el total és 0.289. Aquest número s'aconseguia amb dotze GPUs, posant sis en dos nodes. Com els nodes tenen vuit slots per gràfiques, podríem afegir quatre gràfiques amb menys TFlops i intentar apropar-nos més al 30\% de TFlops de GPU que ens imposa la restricció.
+
+Per fer-ho, afegim quatre gràfiques \textit{AMD Radeon Pro WX8200}, afegint 2.625 TFlops al nostre clúster. El preu s'incrementa en 3879.96\$ i el ràtio de TFlops GPU/Total acaba sent 0.296.
 
 Més concretament, aquesta és la configuració que hem escollit:
 \begin{table}[H]
@@ -11,8 +13,10 @@ Més concretament, aquesta és la configuració que hem escollit:
 \hline
 {\cellcolor[HTML]{EFEFEF}CPU}         & {\cellcolor[HTML]{EFEFEF}Dual-Socket AMD EPYC Rome 7502P} \\ 
 Cores/Node                                       & 128                                             \\ 
-{\color[HTML]{000000}GPU}                       & {\color[HTML]{000000}AMD Radeon Instinct MI50} \\ 
-\#GPUs                                           & 12 (2 nodes amb 6 GPUs)                         \\ 
+{\cellcolor[HTML]{EFEFEF}GPU\_1}                       & {\cellcolor[HTML]{EFEFEF}AMD Radeon Instinct MI50} \\ 
+\#GPU\_1                                           & 12 (2 nodes amb 6 GPUs)                         \\
+{\cellcolor[HTML]{EFEFEF}GPU\_2}                       & {\cellcolor[HTML]{EFEFEF}AMD RadeonPro WX8200} \\ 
+\#GPU\_2                                           & 4 (2 nodes amb 2 GPUs)                         \\
 {\cellcolor[HTML]{EFEFEF}Memòria}     & {\cellcolor[HTML]{EFEFEF}Kingston KSM29RS4 DDR4 2933Hz}   \\
 {\color[HTML]{000000}Memòries/node}             & {\color[HTML]{000000}8 DIMMS de 16GB}          \\ 
 {\cellcolor[HTML]{EFEFEF}Commutadors} & {\cellcolor[HTML]{EFEFEF}Mellanox MQM8700-HS2F, 200Gbits} \\ 
@@ -22,11 +26,11 @@ Cores/Node                                       & 128                          
 {\cellcolor[HTML]{EFEFEF}Us de nodes}               & {\cellcolor[HTML]{EFEFEF}81}                       \\
 {\color[HTML]{000000}Us de nodes + commutadors} & {\color[HTML]{000000}84}                       \\
 {\cellcolor[HTML]{EFEFEF}TFlops CPU}                & {\cellcolor[HTML]{EFEFEF}197.5}                    \\
-{\color[HTML]{000000}TFlops GPU}                & {\color[HTML]{000000}80.46}                    \\ 
-{\cellcolor[HTML]{EFEFEF}TFlops Totals}             & {\cellcolor[HTML]{EFEFEF}277.96}                   \\ 
-{\color[HTML]{000000}TFlops GPU/Totals}         & {\color[HTML]{000000} 0.289}                    \\ 
-{\cellcolor[HTML]{EFEFEF}Cost (Dòllars)}                 & {\cellcolor[HTML]{EFEFEF}1123147.449}              \\
-{\color[HTML]{000000}GFlops/Dòllar}               & {\color[HTML]{000000}0.253}                    \\ \hline
+{\color[HTML]{000000}TFlops GPU}                & {\color[HTML]{000000}83.085}                    \\ 
+{\cellcolor[HTML]{EFEFEF}TFlops Totals}             & {\cellcolor[HTML]{EFEFEF}280.585}                   \\ 
+{\color[HTML]{000000}TFlops GPU/Totals}         & {\color[HTML]{000000} 0.296}                    \\ 
+{\cellcolor[HTML]{EFEFEF}Cost (Dòllars)}                 & {\cellcolor[HTML]{EFEFEF}1127027.41}              \\
+{\color[HTML]{000000}GFlops/Dòllar}               & {\color[HTML]{000000}0.255}                    \\ \hline
 \end{tabular}
 \caption{Configuració final del clúster}
 \end{center}
