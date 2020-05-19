@@ -44,5 +44,12 @@ La columna \texttt{J} conté el màxim de nodes que podríem tenir, tenint en co
 Aquest càlcul també es s'ha realitzat per saber el nombre de nodes d'1 U que podríem encavir, el qual està a la columna \texttt{K}.
 
 \subsection{GPU}
+Aquesta sheet conté les targetes gràfiques estudiades, amb les seves especificacions tècniques i mètriques de GFlops, GFlops/Watt i GFlops/\$.
+
+Una característica de les targetes gràfiques és que en funció del tipus de dada que han de computar, tenen una major o menor performance. La mètrica dels GFlops ja ve donada pels fabricants, per tant hem hagut de calcular les altres. 
+
+Les mètriques s'han calculat per Floating Point (FP) 64, 32 i 16.
+Les FP64 ens interessen perquè és el tamany usual dels \texttt{double} i així podem comprar equitativament la performance amb la dels processadors, que ha estat calculada en base a dades de 64 bits.
+Les FP16 són interessant perquè en el món de l'AI (Artificial Intelligence) s'acostumen a utilitzar dades d'aquest tamany. Usualment no es necessita més precisió i així es poden enviar més quantitat de dades en un mateix espai de memòria que si fossin dades de 64 bits, el qual és important perquè el bottleneck habitual a l'utilitzar GPUs és la connexió entre el processador i la GPU (està limitada a la velocitat del PCIe).
 
 \subsection{Nodes}
