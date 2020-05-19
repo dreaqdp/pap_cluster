@@ -1,4 +1,48 @@
 \appendix
-\section{hola}
+\section{Spreasheet}
+Per poder tenir totes les dades unificades i a l'abast de tots d'una manera senzilla, vam decidir treballar en un Google Spreadsheet. 
 
-hi
+En aquest annex explicarem la seva estructura per tal de facilitar la comprensió del spreadsheet que hem utilitzat per poder realitzar tots els càlculs presentats al delivarable. Aquest es accessible via: \url{https://docs.google.com/spreadsheets/d/1h09R-LO8-yKG6tomeKPeug\_olNzxpoOcf6uOx5kS5uo/edit?usp=sharing}.
+
+En les següents subseccions explicarem cadascuna de les fulles que composen el spreadsheet.
+
+\subsection{CPU}
+En aquesta sheet hem analitzat diferents CPUs. Hem buscat processadors de gama servers/HPC. 
+
+Per cada processador hem anotat les seves característiques per tenir un resum ràpid i per poder extraure mètriques per analitzar el seu rendiment. Cada fila conté un processador diferent, i cada columna les dades d'aquests.
+
+Hem calculat els GFlops en un únic socket, ja que així podem tenir la performance independent del tipus de placa base, és a dir, sense tenir en compte si la placa base és single, dual, quad... socket. 
+Aquesta columna és la de GFlops/Socket (columna \texttt{I}). La següent columana, la \texttt{J}, conté la mètrica de GFlops/Watt per poder tenir la seva eficiència energètica. A continuació, la columna \texttt{K} és per calcular els GFlops/\$ i així saber com de bé invertim els diners.
+
+Les columnes de la \texttt{L} a la \texttt{N} han sigut per poder normalitzar les mètriques exposades respecte la mitjana i poder representar-les totes en un únic plot.
+
+Les dades de preu dels processadors ARM, files \texttt{2} i \texttt{3}, les vam extreure de pàgines que no acabaven de concretar el preu de cada model, sinó que indicaven un ranc de preus per la familia ThunderX2. Per tant, per calcular el preu del 2n processador, el 2n més potent dels ARM, vam dividir el rank de preus entre el nombre de CPUs de la familia. Sabem que no és una manera molt fiable de tenir el preu, però no vam aconseguir trobar el seu cost exacte enlloc.
+
+Les dades de preu dels processadors AMD es van extreure tots de \url{www.neweggbussiness.com}. Les de Intel es van trobar a la mateixa web del fabricant, Intel.
+
+\subsection{Motherboards}
+En aquesta fulla estan les plaques base que vam buscar, contenen les seves característiques. Tenim el preu d'algunes, ja que no va ser possible trobar de la resta.
+
+Hi ha tant dual com single-socket i totes són per la mateixa família de processador, ja que els dos processadors preseleccionats pertanyen a la mateixa.
+
+En l'eix de les \texttt{X} tenim les característiques, i en el de la \texttt{Y} les plaques base buscades.
+No s'han extret mètriques.
+
+\subsection{Memories}
+En aquesta sheet estan les memòries seleccionades, fent un resum de les seves característiques.
+
+En l'eix de les \texttt{X} tenim les característiques, i en el de la \texttt{Y} les memòries buscades.
+
+\subsection{Mellanox}
+Aquesta fulla conté la informació relativa a la xarxa d'interconnexió. S'anomena \texttt{Mellanox} perquè tots els switches buscats són de l'empresa Mellanox.
+
+En l'eix de les \texttt{X} tenim les característiques, i en el de la \texttt{Y} els commutadors buscats.
+
+La columnna \texttt{H} conté les màximes connexions que podem tenir, en funció del nombre de switches i dels ports que tinguin. 
+La següent columna, la \texttt{I}, indica quant espai necessitariem als racks per tenir el total de commutadors i el màxim de connexions.
+La columna \texttt{J} conté el màxim de nodes que podríem tenir, tenint en compte la limitació dels dos racks, de les 84 U. 
+Aquest càlcul també es s'ha realitzat per saber el nombre de nodes d'1 U que podríem encavir, el qual està a la columna \texttt{K}.
+
+\subsection{GPU}
+
+\subsection{Nodes}
