@@ -1,0 +1,33 @@
+#!/usr/bin/gnuplot
+
+reset
+set datafile separator ","
+
+set terminal pngcairo size 1024,512 enhanced font 'Verdana,10'
+set output '../img/summary.png'
+
+set xtics rotate by -30 mirror
+
+set yrange[0:300]
+set y2range[0:0.5]
+
+
+set ytics
+set ylabel 'TFLOPS'
+set format y "%6.2f"
+
+set y2tics nomirror
+set y2label 'GFLOPS/€'
+set format y2 "%6.2f"
+
+set key on outside center top horizontal maxcols 3
+
+set style histogram columns
+set style fill solid 0.8 border -1
+set key autotitle column
+set boxwidth 0.4 relative
+set format y "    "
+
+plot  "../data/summary.csv" u 1:(0):xticlabels(2) with points,\
+      "../data/summary.csv" u ($1-0.2):3 with boxes axes x1y1 title "Performance" ,\
+      "../data/summary.csv" u ($1+0.2):5 with boxes axes x1y2 title "Performance / €"

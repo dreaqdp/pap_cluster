@@ -16,7 +16,7 @@ set ylabel  "Compute connections"
 set y2label "Numero de Us disponibles"
 set xlabel  "Numero de commutadors"
 
-set key on outside center top horizontal
+set key on outside center top horizontal maxcols 3
 
 plot  x*(12+1)-x**2 with lines title "12 ports", \
       x*(18+1)-x**2 with lines title "18 ports", \
