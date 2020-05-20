@@ -83,6 +83,8 @@ Component                           & \multicolumn{2}{c|}{Specifications}       
     \multirow{-3}{*}{Infinity fabric 2} & Directions                                   & 2                           & \multirow{-3}{*}{23.38}  \\ \hline
                                     & \cellcolor[HTML]{EFEFEF}Lanes                & \cellcolor[HTML]{EFEFEF}128 &                          \\
 \multirow{-2}{*}{PCIe 4.0}          & GT/s                                         & 16                          & \multirow{-2}{*}{256.00} \\ \hline
+\multirow{-1}{*}{Hbm2 amd mi50} & \cellcolor[HTML]{EFEFEF}- & \cellcolor[HTML]{EFEFEF}- & 1024.00 \\ \hline
+\multirow{-1}{*}{Hbm2 amd pro} & - & - & 512.00 \\ \hline
 \end{tabular}
     \caption{Bandwidth de cada element de transmissió de dades del socket.}
     \label{tab:peak_bw}
@@ -134,6 +136,20 @@ En el nostre clúster un dels tipus de node que tenim és només amb processador
         \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{entregable/img/roofline_cpus_dram}
+    \caption{Model Roofline amb només CPUs en un socket}
+    \label{fig:summary}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{entregable/img/roofline_cpun_dram}
+    \caption{Model Roofline amb només CPUs en un node}
+    \label{fig:summary}
+\end{figure}
+
 \subsubsection{Només GPU}
 
 \begin{itemize}
@@ -152,6 +168,21 @@ En el nostre clúster un dels tipus de node que tenim és només amb processador
 \[2\ sockets \times 692.12\ TFlops/socket = 1384.23\ GFlops/node\]
         \end{itemize}
 \end{itemize}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{entregable/img/roofline_gpus_memgpu}
+    \caption{Model Roofline amb només GPUs en un socket}
+    \label{fig:summary}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{entregable/img/roofline_gpun_memgpu}
+    \caption{Model Roofline amb només GPUs en un node}
+    \label{fig:summary}
+\end{figure}
 
 %    \item GFlops socket node 2U:\\
 %        \[ \begin{aligned} 1280\ GFlops/cpu + 20597.76\ GFlops/GPU\_MI50 + \\ + 672\ GFlops/GPU_WX8200 = 1280\ GFlops/socket \end{aligned} \]
