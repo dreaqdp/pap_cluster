@@ -12,7 +12,7 @@ Les combinacions de components que tenim són les següents:
 
 
 
-Per a cadascuna de les xarxes (nombre i tipus de commutador) s'ha estudiat quina és la combinació de nodes sense gràfica (1U) i amb gràfica (2U) que ens maximitza els TFlops. Cada combinació dóna uns TFlops diferents i, per tant, té un límit de gràfiques (seguint les restriccions del disseny) diferent. Aquest estudi s'ha hagut de realitzar per cadascun dels dos processadors escollits.
+Per a cadascuna de les xarxes (nombre i tipus de commutador) s'ha estudiat quina és la combinació de nodes sense gràfica (1 U) i amb gràfica (2 U) que ens maximitza els TFlops. Cada combinació dóna uns TFlops diferents i, per tant, té un límit de gràfiques (seguint les restriccions del disseny) diferent. Aquest estudi s'ha hagut de realitzar per cadascun dels dos processadors escollits.
 
 S'ha considerat que els nodes que tenen gràfica ocupen tots els possibles slots per aquestes, i així s'optimitza millor l'espai. En la següent taula es poden veure els resultats resumits (és a dir, per cada combinació de nodes dins la xarxa s'ha mostrat només la que atorga més TFlops), però si es vol veure totes les possibles combinacions es pot anar a l'annex \ref{sec:annex_summary} per entrendre les fulles on les computem.
 
@@ -42,7 +42,7 @@ S'ha considerat que els nodes que tenen gràfica ocupen tots els possibles slots
 \end{adjustwidth}
 \end{table}
 
-A la figura \ref{fig:summary} podem observar les diferències de performance i GFlops/\$ de les diferents combinacions de nodes exposades a la taula \ref{tab:summary}.
+A la figura \ref{fig:summary} podem observar les diferències de performance i GFlops/Dòllar de les diferents combinacions de nodes exposades a la taula \ref{tab:summary}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{img/summary}
@@ -54,5 +54,5 @@ En primer lloc, analitzem la taula \ref{tab:summary} en l'eix horitzontal. S'obs
 
 Per altra banda, observem que amb 6 commutadors de 18 ports aconseguim una eficiència GFlops/Dòllar més bona, tot i que no arribem a tants TFlops com amb altres opcions.
 
-Analitzant la taula \ref{tab:summary} en l'eix vertical, veiem que per qualsevol configuració la versió amb dual-socket ens dóna més TFlops amb una eficiència econòmica millor. Això pot ser degut en part a que els nodes amb gràfiques poden tenir-ne fins a vuit per node en comptes de quatre com en el cas del single-socket. Per tant, podem tenir més gràfiques utilitzant menys U, deixant-ne més disponibles per a nodes sense gràfiques (1U).
+Analitzant la taula \ref{tab:summary} en l'eix vertical, veiem que per qualsevol configuració la versió amb dual-socket ens dóna més TFlops amb una eficiència econòmica millor. Això pot ser degut en part a que els nodes amb gràfiques poden tenir-ne fins a vuit per node en comptes de quatre com en el cas del single-socket. Per tant, podem tenir més gràfiques utilitzant menys U, deixant-ne més disponibles per a nodes sense gràfiques (1 U).
 

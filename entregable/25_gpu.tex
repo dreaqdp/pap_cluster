@@ -14,7 +14,7 @@ Aquests dos escenaris presenten avantatges i inconvenients. En el cas de tenir p
 \begin{itemize}
     \item Avantatges:
     \begin{itemize}
-        \item Menys nodes de 2U i més d'1U. Això permetria tenir més nuclis en el clúster i per tant més nodes per escalar aplicacions o executar diverses aplicacions sense haver d'esperar recursos disponibles.
+        \item Menys nodes de 2 U i més d'1 U. Això permetria tenir més nuclis en el clúster i per tant més nodes per escalar aplicacions o executar diverses aplicacions sense haver d'esperar recursos disponibles.
     \end{itemize}
     \item Inconvenients:
     \begin{itemize}
@@ -27,7 +27,7 @@ En l'escenari de tenir més nodes amb targetes gràfiques, els avantatges i desa
 
 Una diferència important entre NVIDIA i AMD és el model de programació amb el que es pot programar. NVIDIA té un model de programació propietari, anomenat CUDA \cite{gpu_cuda}. És relativament senzill de programar amb aquest model. Per això, moltes aplicacions que estan optimitzades per a utilitzar gràfiques s'han programat amb CUDA i no amb OpenCL.
 
-En canvi, OpenCL és un model de programació obert per sistemes heterogenis \cite{gpu_opencl}. La diferència amb CUDA és que no només pot llençar workloads de feina a targetes gràfiques, sinó que ho pot fet a qualsevol element de comput del sistema, com altres nuclis de la CPU o FPGAs (Field-Programmable Gate Array). A més, és més complicat de programar. %i ja està?
+En canvi, OpenCL és un model de programació obert per sistemes heterogenis \cite{gpu_opencl}. La diferència amb CUDA és que no només pot llençar workloads de feina a targetes gràfiques, sinó que ho pot fet a qualsevol element de comput del sistema, com altres nuclis de la CPU o FPGAs (\textit{Field-Programmable Gate Array}). A més, és més complicat de programar.
 Aquest model de programació paral·lela no és tan senzill d'utilitzar com CUDA i, de retruc, és menys utilitzat.
 
 Les targetes gràfiques d'NVIDIA poden executar tan CUDA com OpenCL, però el rendiment amb OpenCL és inferior a la que es pot obtenir amb CUDA. En canvi, les GPUs d'AMD es poden programar amb OpenCL i no amb CUDA. 
@@ -36,7 +36,7 @@ Això representa una diferencia important, ja que aplicacions que només estigui
 D'aquest component no farem cap preselecció perquè dependrà de diversos factors. Aquests, fonamentalment són: 
 \begin{itemize}
     \item \textbf{Processador:} en funció del processador tindrem més GFlops o menys, per tant els GFlops procedents d'acceleradors seran majors o menors, sempre mantenint-nos dins del límit de que un 30\% dels GFlops del clúster poden provenir d'acceleradors.
-    \item \textbf{Xarxa d'interconnexió:} la quantitat de nodes que es puguin connectar ens permetrà tenir més o menys nodes de 2U, és a dir, nodes amb GPUs. Per exemple, si tenim una xarxa amb pocs ports i queden Us al rack sense connexions, es pot optar per utilitzar nodes que ocupin més espai (nodes amb gràfiques), aprofitant al màxim les connexions i l'espai.
+    \item \textbf{Xarxa d'interconnexió:} la quantitat de nodes que es puguin connectar ens permetrà tenir més o menys nodes de 2 U, és a dir, nodes amb GPUs. Per exemple, si tenim una xarxa amb pocs ports i queden Us al rack sense connexions, es pot optar per utilitzar nodes que ocupin més espai (nodes amb gràfiques), aprofitant al màxim les connexions i l'espai.
 \end{itemize}
 
 

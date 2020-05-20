@@ -40,7 +40,7 @@ Com que el processador \textit{AMD EPYC 7702P} té 64 nuclis i l'\textit{AMD EPY
 
 En la taula \ref{tab_web_plaques_cmp} es veuen aquestes possibles combinacions. En el cas d'utilitzar un node amb GPUs no s'ha inclòs el preu de la pròpia GPU, ja que això dependrà de quina escollim més endavant. Per la mateixa raó, tampoc s'han exposat els GFflops de les versions amb GPU. En aquests preus tampoc s'inclouen els costos de les memòries i les targetes de xarxa.
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{adjustwidth}{-.5in}{-.5in}  
     \begin{center}
     \centering
@@ -57,9 +57,11 @@ Configuració & Nuclis & \begin{tabular}[c]{@{}c@{}}GFlops \\ CPU\end{tabular} &
 }
 \end{center}
     \end{adjustwidth}
-    \caption{Comparació entre les diferents configuracions dels nodes. \textit{Nota: Els preus de les referències poden no ser exactament iguals que els de la taula, ja que s'han descomptat alguns preus com el de la memòria o disc}}
+    \caption{Comparació entre les diferents configuracions dels nodes.}
     \label{tab_web_plaques_cmp}
 \end{table}
+\vspace{-0.75cm} %Fet pq la nota es vegi que "s'inclou" en la taula de sobre.
+\textit{Nota: Els preus de les referències poden no ser exactament iguals que els de la taula, ja que s'han descomptat alguns preus com el de la memòria o disc}
 
 Veiem que tot i que la versió amb dual-socket ens proporciona més GFlops, l'eficiència GFlops/dòllar és millor per la versió amb single-socket. Per tant, en aquest punt encara no podem decantar-nos per cap de les dues. Una vegada haguem considerat quines GPUs utilitzem, quina xarxa tenim, etc., podrem valorar si tenim suficient pressupost com per escollir la opció amb més GFlops. A més, quan les GPUs entrin en joc també s'haurà de tenir en compte que amb l'opció dual-socket en podem posar-ne el doble per cada node.
 
