@@ -5,12 +5,12 @@ sigui possible a nodes de còmput, volem reduir el nombre d'unitats que dediquem
 nombre de ports per unitat.
 Com efecte col·lateral d'aquesta estratègia ens veiem amb un sistema que pràcticament es veu forçat a utilitzar una topologia de xarxa de tipus malla.
 
-Pel que fa a distribuïdors, ens vam centrar en \textit{Mallanox Technologies}. A la pàgina web
+Pel que fa a distribuïdors, ens vam centrar en \textit{Mellanox Technologies}. A la pàgina web
 \cite{mellanox-web} de la companyia, vam trobar commutadors \textit{InfiniBand} de diferents preus
 i velocitats (com més ports major és la velocitat). A la taula \ref{tab:intercon} hem recollit els 
 diferents models candidats a ser utilitzats en el nostre sistema.
 
-\begin{table}[H]
+\begin{table}[h]
 \begin{adjustwidth}{-.5in}{-.5in}  
     \begin{center}
         \centering
@@ -26,16 +26,16 @@ diferents models candidats a ser utilitzats en el nostre sistema.
             \end{tabular}
         \end{centering}
         }
-    \caption{Comparació entre les diferents configuracions dels nodes.}
+    \caption{Comparació entre els diferents commutadors.}
     \label{tab:intercon}
     \end{center}
 \end{adjustwidth}
 \end{table}
 
 La quantitat de commutadors que utilitzem en el nostre sistema és un factor clau que marca,
-tan el preu, com el rendiment, d'aquest. D'altre banda, però, afecta diferent als dos paràmetres,
+tan el preu, com el rendiment, d'aquest. D'altre banda, però, afecta diferent als dos paràmetres
 anteriors en funció dels altres components. Per tan no podem determinar encara quina serà la
-millor configuració. No obstant, si que podem reduir el rang de configuracions, per tal que
+millor configuració. No obstant, sí que podem reduir el rang de configuracions, per tal que
 l'anàlisi sigui més amè.
 
 Ja que utilitzem una topologia de tipus malla completa, el nombre de connexions $C$ a nodes de còmput
@@ -43,24 +43,24 @@ que podrà tenir la xarxa ve marcat per el nombre de ports $P$ del que disposa c
 com el nombre de commutadors $N$ que tingui el sistema. Deduïm que el nombre de connexions
 que podrà haver al sistema ve determinat per $C = N \times ( P - N + 1 ) = -N^2 + N(P+1)$.
 A la figura \ref{fig:connections} podem veure quin és el comportament d'aquesta funció quan incrementem
-el nombre de commutadors, aquesta figura consta del comportament dels commutadors, així com del nombre 
+el nombre de commutadors. Aquesta figura consta del comportament dels commutadors, així com del nombre 
 d'unitats que queden disponibles. Pel nostre sistema estudiarem aquelles configuracions que s'acostin 
-més a la línia de punts. Cal entendre que si són més avall de la línia de punts vol dir que estem perden connexions
+més a la línia de punts. Cal entendre que si són més avall de la línia de punts vol dir que estem perdent connexions
 i que possiblement ens quedi espai lliure a l'armari. D'altra banda, si som més amunt de la línia 
 significa que ja tenim les connexions necessàries per omplir els dos armaris; incrementar el nombre de connexions
-només ens portaria a desaprofitar-les (assumim que mínim una U per node).
+només ens portaria a desaprofitar-les, assumint que cada node ocupa 1 U.
 
 Llavors, a partir d'aquest argument podem desglossar les diferents configuracions que val la pena explorar:
 \begin{itemize}
   \item El cas del model \textit{MSX6012F-2BFS} no l'analitzarem, ja que no hi ha cap configuració òptima per la topologia utilitzada.
-  \item Pel cas del model \textit{MSX6018F-1SFS}, tenint en compte que tenim divuit ports, analitzarem les configuracions amb sis i set commutadors.
-  \item Pel cas del model \textit{MSB7800-ES2F}, amb trenta-sis ports, centrarem l'anàlisi en les configuracions de dos i tres commutadors.
-  \item Pel cas del model \textit{MQM8700-HS2F}, amb quaranta ports, ens centrarem també en dos i tres commutadors.
+  \item Pel cas del model \textit{MSX6018F-1SFS}, tenint en compte que tenim 18 ports, analitzarem les configuracions amb 6 i 7 commutadors.
+  \item Pel cas del model \textit{MSB7800-ES2F}, amb 36 ports, centrarem l'anàlisi en les configuracions de 2 i 3 commutadors.
+  \item Pel cas del model \textit{MQM8700-HS2F}, amb 40 ports, ens centrarem també en 2 i 3 commutadors.
 \end{itemize}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{img/connections.png}
+    \includegraphics[width=0.6\linewidth]{img/connections.png}
     \caption{Connexions disponibles per a nodes de comput en funció del nombre de commutadors.}
     
     \label{fig:connections}

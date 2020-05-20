@@ -1,74 +1,73 @@
 \appendix
-\section{Spreadsheet}
-Per poder tenir totes les dades unificades i a l'abast de tots d'una manera senzilla, vam decidir treballar en un Google Spreadsheet. 
+\section{Spreadsheet} \label{sec:annex}
+Per poder tenir totes les dades unificades i a l'abast de tots d'una manera senzilla, vam decidir treballar emprant \textit{Google Spreadsheet}. 
 
-En aquest annex explicarem la seva estructura per tal de facilitar la comprensió del spreadsheet que hem utilitzat per poder realitzar tots els càlculs presentats al delivarable. Aquest es accessible via: \url{https://docs.google.com/spreadsheets/d/1h09R-LO8-yKG6tomeKPeug\_olNzxpoOcf6uOx5kS5uo/edit?usp=sharing}.
+En aquest annex explicarem la seva estructura per tal de facilitar la comprensió de dels fulls de càlcul que hem utilitzat per poder realitzar tots els estudis presentats al llarg d'aquest projecte. Aquest és accessible via: \url{https://docs.google.com/spreadsheets/d/1h09R-LO8-yKG6tomeKPeug\_olNzxpoOcf6uOx5kS5uo/edit?usp=sharing}.
 
-En les següents subseccions explicarem cadascuna de les fulles que composen el spreadsheet.
+En les següents subseccions explicarem cadascuna de les fulles que composen l'spreadsheet.
 
 \subsection{CPU}
-En aquesta sheet hem analitzat diferents CPUs. Hem buscat processadors de gama servers/HPC. 
+En aquesta full hem analitzat diferents CPUs. Hem buscat processadors de gamma servidors/HPC. 
 
-Per cada processador hem anotat les seves característiques per tenir un resum ràpid i per poder extraure mètriques per analitzar el seu rendiment. Cada fila conté un processador diferent, i cada columna les dades d'aquests.
+Per cada processador hem anotat les seves característiques per tenir un resum ràpid de tots ells i per poder extraure mètriques per analitzar el seu rendiment. Cada fila conté un processador diferent, i cada columna les dades d'aquests.
 
-Hem calculat els GFlops en un únic socket, ja que així podem tenir la performance independent del tipus de placa base, és a dir, sense tenir en compte si la placa base és single, dual, quad... socket. 
-Aquesta columna és la de GFlops/Socket (columna \texttt{I}). La següent columana, la \texttt{J}, conté la mètrica de GFlops/Watt per poder tenir la seva eficiència energètica. A continuació, la columna \texttt{K} és per calcular els GFlops/\$ i així saber com de bé invertim els diners.
+Hem calculat els GFlops en un únic socket, ja que així podem tenir el rendiment independentment del tipus de placa base, és a dir, sense tenir en compte si la placa base és single, dual, quad... socket. 
+Aquesta columna és la de GFlops/Socket (columna \texttt{I}). La següent columna, la \texttt{J}, conté la mètrica de GFlops/Watt per poder tenir la seva eficiència energètica. A continuació, la columna \texttt{K} és per calcular els GFlops/Dòllar i així saber com de bé invertim els diners.
 
-Les columnes de la \texttt{L} a la \texttt{N} han sigut per poder normalitzar les mètriques exposades respecte la mitjana i poder representar-les totes en un únic plot.
+Les columnes de la \texttt{L} a la \texttt{N} han sigut per poder normalitzar les mètriques exposades respecte la mitjana i poder representar-les totes en un únic gràfic.
 
-Les dades de preu dels processadors ARM, files \texttt{2} i \texttt{3}, les vam extreure de pàgines que no acabaven de concretar el preu de cada model, sinó que indicaven un ranc de preus per la familia ThunderX2. Per tant, per calcular el preu del 2n processador, el 2n més potent dels ARM, vam dividir el rank de preus entre el nombre de CPUs de la familia. Sabem que no és una manera molt fiable de tenir el preu, però no vam aconseguir trobar el seu cost exacte enlloc.
+Les dades de preu dels processadors ARM, files \texttt{2} i \texttt{3}, les vam extreure de pàgines que no acabaven de concretar el preu de cada model, sinó que indicaven un ranc de preus per la família \textit{Thunder X2}. Per tant, per calcular el preu del 2n processador, el 2n més potent dels ARM, vam dividir el rank de preus entre el nombre de CPUs de la família. Sabem que no és una manera molt fiable de tenir el preu, però no vam aconseguir trobar el seu cost exacte enlloc.
 
-Les dades de preu dels processadors AMD es van extreure tots de \url{www.neweggbussiness.com}. Les de Intel es van trobar a la mateixa web del fabricant, Intel.
+Les dades de preu dels processadors AMD es van extreure tots de \url{www.neweggbussiness.com}. Les d'Intel es van trobar a la mateixa web del fabricant, Intel.
 
 \subsection{Motherboards}
-En aquesta fulla estan les plaques base que vam buscar, contenen les seves característiques. Tenim el preu d'algunes, ja que no va ser possible trobar de la resta.
+En aquesta fulla hi ha les plaques base que vam buscar, conté les seves característiques. Tenim el preu només d'algunes d'elles, ja que no va ser possible trobar la resta.
 
-Hi ha tant dual com single-socket i totes són per la mateixa família de processador, ja que els dos processadors preseleccionats pertanyen a la mateixa.
+Hi trobareu dual i single-socket, totes sent per la mateixa família de processador, ja que els dos processadors preseleccionats pertanyen a la mateixa.
 
-En l'eix de les \texttt{X} tenim les característiques, i en el de la \texttt{Y} les plaques base buscades.
-No s'han extret mètriques.
+A l'eix de les \texttt{X} tenim les característiques, i al de les \texttt{Y} les plaques base buscades. No s'han extret mètriques.
 
-\subsection{Memories}
-En aquesta sheet estan les memòries seleccionades, fent un resum de les seves característiques.
+\subsection{Memòries}
+En aquesta full hi ha les memòries seleccionades, fent un resum de les seves característiques.
 
-En l'eix de les \texttt{X} tenim les característiques, i en el de la \texttt{Y} les memòries buscades.
+A l'eix de les \texttt{X} tenim les característiques, i al de la \texttt{Y} les memòries buscades.
 
 \subsection{Mellanox}
-Aquesta fulla conté la informació relativa a la xarxa d'interconnexió. S'anomena \texttt{Mellanox} perquè tots els switches buscats són de l'empresa Mellanox.
+Aquesta fulla conté la informació relativa a la xarxa d'interconnexió. S'anomena \texttt{Mellanox} perquè tots els commutadors buscats són de l'empresa Mellanox.
 
-En l'eix de les \texttt{X} tenim les característiques, i en el de la \texttt{Y} els commutadors buscats.
+A l'eix de les \texttt{X} tenim les característiques, i al de la \texttt{Y} els commutadors buscats.
 
 La columnna \texttt{H} conté les màximes connexions que podem tenir, en funció del nombre de switches i dels ports que tinguin. 
-La següent columna, la \texttt{I}, indica quant espai necessitariem als racks per tenir el total de commutadors i el màxim de connexions.
+La següent columna, la \texttt{I}, indica quant d'espai necessitaríem als racks per tenir el total de commutadors i el màxim de connexions.
 La columna \texttt{J} conté el màxim de nodes que podríem tenir, tenint en compte la limitació dels dos racks, de les 84 U. 
-Aquest càlcul també es s'ha realitzat per saber el nombre de nodes d'1 U que podríem encavir, el qual està a la columna \texttt{K}.
+Aquest càlcul també s'ha realitzat per saber el nombre de nodes d'1 U que podríem encabir, el qual és a la columna \texttt{K}.
 
 \subsection{GPU}
-Aquesta sheet conté les targetes gràfiques estudiades, amb les seves especificacions tècniques i mètriques de GFlops, GFlops/Watt i GFlops/\$.
+Aquest full conté les targetes gràfiques estudiades amb les seves especificacions tècniques i mètriques de GFlops, GFlops/Watt i GFlops/Dòllar.
 
-Una característica de les targetes gràfiques és que en funció del tipus de dada que han de computar, tenen una major o menor performance. La mètrica dels GFlops ja ve donada pels fabricants, per tant hem hagut de calcular les altres. 
+Una característica de les targetes gràfiques és que, en funció del tipus de dada que han de computar, tenen una major o menor performance. La mètrica dels GFlops ja ve donada pels fabricants, per tant hem hagut de calcular les altres. 
 
 Les mètriques s'han calculat per Floating Point (FP) 64, 32 i 16.
-Les FP64 ens interessen perquè és el tamany usual dels \texttt{double} i així podem comprar equitativament la performance amb la dels processadors, que ha estat calculada en base a dades de 64 bits.
-Les FP16 són interessant perquè en el món de l'AI (Artificial Intelligence) s'acostumen a utilitzar dades d'aquest tamany. Usualment no es necessita més precisió i així es poden enviar més quantitat de dades en un mateix espai de memòria que si fossin dades de 64 bits, el qual és important perquè el bottleneck habitual a l'utilitzar GPUs és la connexió entre el processador i la GPU (està limitada a la velocitat del PCIe).
+Les FP64 ens interessen perquè és la mida usual dels \texttt{double} i així podem comprar equitativament el rendiment amb la dels processadors, que ha estat calculada en base a dades de 64 bits.
+Les FP16 són interessant perquè en el món de l'IA (Intel·ligència Artificial) s'acostumen a utilitzar dades d'aquesta mida. Usualment no es necessita més precisió i, així, es poden enviar més quantitat de dades en un mateix espai de memòria que si fossin dades de 64 bits, això és important perquè el bottleneck habitual en utilitzar GPUs és la connexió entre el processador i la GPU (queda limitada a la velocitat del PCIe).
 
 \subsection{Nodes}
 En aquesta fulla trobem les característiques que pot tenir el node, el seu preu i mètriques de rendiment.
 
-Es pren com a base la motherboard seleccionada per cada processador a l'apartat \ref{sec:motherboard}. En funció d'aquestes es calcula el cost que tindria no tenir cap GPU, tenir una o tenir-ne el màxim que permet la placa base. S'ha tingut en compte les 2 GPUs que més TFlops donen
+Es pren com a base la motherboard seleccionada per cada processador a l'apartat \ref{sec:motherboard}. En funció d'aquestes es calcula el cost que tindria no tenir cap GPU, tenir-ne una o tenir-ne el màxim que permet la placa base. S'ha tingut en compte les 2 GPUs que més TFlops donen.
 
-Estan marcades amb fons verd les combinacions de placa base i GPUs que més GFlops i GFlops/\$ donen.
+Hi ha marcades amb fons verd les combinacions de placa base i GPUs que més GFlops i GFlops/Dòllar donen.
 
 \subsection{Summary}
-Aquesta sheet conté un resum de quines han sigut les combinacions que fixat: processador i motherboard, targeta gràfica i tipus de switch; aconseguien més TFlops o GFlops/\$.
+Aquest full conté un resum de quines han sigut les combinacions de components establertes: processador i motherboard, targeta gràfica i tipus de switch; aconseguien més TFlops o GFlops/Dòllar.
 
-En l'eix de les \texttt{X} estan tant els processadors com les possibles targetes gràfiques, aquests estan per ambdos processadors. En l'eix de les \texttt{Y} tenim el tipus de switch i en quin paràmetre ens fixem per trobar la millor combinació (TFlops o GFlops/\$ màxim).
+A l'eix de les \texttt{X} hi ha tan els processadors com les possibles targetes gràfiques, aquests són per ambdós processadors. A l'eix de les \texttt{Y} tenim el tipus de switch, i en quin paràmetre ens fixem per trobar la millor combinació (TFlops o GFlops/Dòllar màxim).
 
-Per cada combinació es busca quina seria la seva configuració en nombre de nodes d'1 i 2 U, els TFlops totals, preu i GFlops/\$. La fila anomenada \texttt{column} és per facilitar la cerca dels altres paràmetres, per a no complicar excessivament les fòrmules de les altres cel·les.
+Per cada combinació es busca quina seria la seva configuració en nombre de nodes d'1 i 2 U, els TFlops totals, preu i GFlops/Dòllar. La fila anomenada \texttt{column} és per facilitar la cerca dels altres paràmetres, per a no complicar excessivament les fórmules de les altres cel·les.
 
-Per cada combinació de processador i GPU es marca a les files de \texttt{TFlops Total} en color blau quina és la que té el valor màxim. Les files de \texttt{Price} tenen el mínim presupost marcat amb color verd. Les files de \texttt{GFlops/\$} tenen el màxim en color taronja.
+Per cada combinació de processador i GPU es marca a les files de \texttt{TFlops Total} en color blau quina és la que té el valor màxim. Les files de \texttt{Price} tenen el mínim pressupost marcat amb color verd. Les files de \texttt{GFlops/\$} tenen el màxim en color taronja.
 
-\subsection{Summary X nintendos [Y ports]}
+\subsection{Summary X nintendos [Y ports]} \label{sec:annex_summary}
 Aquesta subsecció engloba les següents fulles:
 \begin{itemize}
     \item Summary 6 nintendos
@@ -79,14 +78,14 @@ Aquesta subsecció engloba les següents fulles:
     \item Summary 3 nintendos 40 ports
 \end{itemize}
 
-Durant la realització d'aquest treball vam fer la broma que costava pronunciar \textit{switches} i que per tant anomenariem els communtadors \texttt{nintendos} (switch $>$ Nintendo Switch $>$ nintendo). Per aquest motiu, vam començar a anomenar les fulles amb aquests noms.
-Actualment, el spreadsheet és tant gran i tantes coses depenen les unes de les altres, que si canviem el nom de les fulles no pot aplicar bé els canvis de noms i se'ns trenca tot. És per aquest motiu que hem decidit mantenir els noms amb \texttt{nintendo}.
+Durant la realització d'aquest treball vam fer la broma que costava pronunciar \textit{switches} i que per tant anomenaríem els commutadors \texttt{nintendos} (switch $>$ Nintendo Switch $>$ nintendo). Per aquest motiu, vam començar a anomenar les fulles amb aquests noms.
+Actualment, l'spreadsheet és tan gran i tantes coses depenen les unes de les altres que si canviem el nom de les fulles no pot aplicar bé els canvis de noms i se'ns trenca tot. És per aquest motiu que hem decidit mantenir els noms amb \texttt{nintendo}.
 
-Totes les fulles segueixen la mateixa estructura i idea simplement canviant el tipus de communtador, o nintendo. Aquest canvi implica una diferència en el nombre de nodes que es poden tenir.
+Totes les fulles segueixen la mateixa estructura i idea, simplement canviant el tipus de commutador, o \textit{nintendo}. Aquest canvi implica una diferència en el nombre de nodes que es poden tenir.
 
-En l'eix de les \texttt{X} trobem el nombre de nodes d'1 i 2 U. Els nodes d'1 U depenen del nombre de nodes de 2 U. Els d'1 U es calculen realitzant el mínim entre: el nombre de connexions totals dels switches menys els nodes de 2 U, i l'espai màxim (84 U) menys l'espaiu que ocupen els nodes de 2 U i els commutadors; és a dir, el mínim entre les connexions disponibles i l'espai disponible. 
+A l'eix de les \texttt{X} trobem el nombre de nodes d'1 i 2 U. Els nodes d'1 U depenen del nombre de nodes de 2 U. Els d'1 U es calculen realitzant el mínim entre el nombre de connexions totals dels switches menys els nodes de 2 U, i l'espai màxim (84 U) menys l'espai que ocupen els nodes de 2 U i els commutadors; és a dir, el mínim entre les connexions disponibles i l'espai disponible. 
 
-En l'eix de les \texttt{Y} trobem els dos possibles procesadors, i per cadascun les 7 possibles targetes gràfiques. A més, per cada CPU calculem quants TFlops obtenim per part de tots els processadors que podem incorporar, fila \texttt{TFlops cpus}, i quants TFlops per node de 2 U podem obtenir per part de les gràfiques tenint en compte la limitació del 30\% comentada a la secció \ref{sec:intro}, fila \texttt{TFlops/node 2U}.
+A l'eix de les \texttt{Y} trobem els dos possibles processadors per cadascun les 7 possibles targetes gràfiques. A més, per cada CPU calculem quants TFlops obtenim per part de tots els processadors que podem incorporar, fila \texttt{TFlops cpus}, i quants TFlops per node de 2 U podem obtenir per part de les gràfiques tenint en compte la limitació del 30\% comentada a la secció \ref{sec:intro}, fila \texttt{TFlops/node 2U}.
 
 Per cada targeta gràfica s'ha calculat:
 \begin{itemize}
@@ -94,7 +93,7 @@ Per cada targeta gràfica s'ha calculat:
         Màxim nombre de GPUs que podem tenir per node de 2 U, simplement tenint en compte els TFlops que podem obtenir per part de GPUs i els TFlops de FP64 de la GPU en qüestió.
 
     \item Fila \texttt{TFlops gpus}\\
-        TFlops reals que podem aconseguir per part de les targetes gràfiques, tenint en compte la limitació del nombre de GPUs que podem encavir en funció de la placa base.\\
+        TFlops reals que podem aconseguir per part de les targetes gràfiques, tenint en compte la limitació del nombre de GPUs que podem encabir en funció de la placa base.\\
         El màxim de la fila està marcat amb el fons de la cel·la de color blau.
         
     \item Fila \texttt{TFlops total}\\
@@ -102,10 +101,10 @@ Per cada targeta gràfica s'ha calculat:
         El màxim de la fila està marcat amb el fons de la cel·la de color blau.
 
     \item Fila \texttt{\% GFlops GPU}\\
-        Percentatge de GFlops que provenen dels acceleradors, per tal de coneixer quant ens ajustem a la limitació del 30\%.
+        Percentatge de GFlops que provenen dels acceleradors, per tal de conèixer fins a quin punt ens ajustem a la limitació del 30\%.
 
     \item Fila \texttt{Price (\$)}\\
-        Cost total del cluster. Inclou el cost dels processadors, plaques base, memòries RAM, targetes de xarxa, commutadors i targetes gràfiques. \\
+        Cost total del clúster. Inclou el cost dels processadors, plaques base, memòries RAM, targetes de xarxa, commutadors i targetes gràfiques. \\
         En el cas que el cost superi el pressupost màxim en dòllars, la cel·la es marca amb color vermell.
 
     \item Fila \texttt{GFlops/(\$)}\\
