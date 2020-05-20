@@ -30,3 +30,8 @@ plot 2560 w l lt 2 t 'CPU (node)', 210.445*x w l lt 3 t 'DRAM'
 set output '../img/roofline_gpun_memgpu.png'
 plot 42539.52 w l lt 2 t 'GPU (node)', 7168*x w l lt 3 t 'GPU MEM'
 
+set output '../img/roofline_cpu_gpus.png'
+plot 22549.76 w l lt 2 t 'CPU + GPU (socket)', 466.45*x w l lt 3 t 'DRAM + IF2 + PCIe 4.0'
+
+set output '../img/roofline_cpu_gpun.png'
+plot 45099.52 w l lt 2 t 'CPU + GPU (node)', 466.45*x w l lt 3 t 'DRAM + IF2 + PCIe 4.0'
