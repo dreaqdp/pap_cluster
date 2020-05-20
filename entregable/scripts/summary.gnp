@@ -18,7 +18,7 @@ set ylabel 'TFLOPS'
 set format y "%6.2f"
 
 set y2tics nomirror
-set y2label 'GFLOPS/€'
+set y2label 'GFLOPS/$'
 set format y2 "%6.2f"
 
 set key on outside center top horizontal maxcols 3
