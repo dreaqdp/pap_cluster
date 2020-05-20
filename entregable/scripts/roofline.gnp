@@ -1,0 +1,30 @@
+#!/usr/bin/gnuplot
+
+reset
+set datafile separator ","
+
+set terminal pngcairo size 1024,512 enhanced font 'Verdana,10'
+
+set xrange[0.01:1024]
+
+set grid
+set logscale y 2
+set logscale x 2
+
+set key on outside center top horizontal maxcols 3
+
+set ylabel "GFlops/Cycle"
+set xlabel "FLOPS/Byte"
+
+set output '../img/roofline_cpus_dram.png'
+plot 1280 w l lt 2 t 'CPU (socket)', 210.445*x w l lt 3 t 'DRAM + IF2'
+
+set output '../img/roofline_gpus_memgpu.png'
+plot 21269.76 w l lt 2 t 'GPU (socket)', 3584*x w l lt 3 t 'GPU MEM'
+
+set output '../img/roofline_cpun_dram.png'
+plot 2560 w l lt 2 t 'CPU (node)', 210.445*x w l lt 3 t 'DRAM'
+
+set output '../img/roofline_gpun_memgpu.png'
+plot 42539.52 w l lt 2 t 'GPU (node)', 7168*x w l lt 3 t 'GPU MEM'
+
