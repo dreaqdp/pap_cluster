@@ -3,7 +3,7 @@
 reset
 set datafile separator ","
 
-set terminal pngcairo size 512,512 enhanced font 'Verdana,10'
+set terminal pngcairo size 1024,512 enhanced font 'Verdana,10'
 
 set xrange[0.01:1024]
 
