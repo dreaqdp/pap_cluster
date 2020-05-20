@@ -8,7 +8,7 @@ set output '../img/summary.png'
 
 set bmargin at screen 0.30
 
-set xtics rotate by -30 mirror
+set xtics offset 3.0,0 rotate by 30 right
 
 set yrange[0:300]
 set y2range[0:0.5]

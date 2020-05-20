@@ -1,0 +1,31 @@
+#!/usr/bin/gnuplot
+
+reset
+set datafile separator ","
+
+set terminal pngcairo size 1024,512 enhanced font 'Verdana,10'
+set output '../img/normalized_cpu.png'
+
+set bmargin at screen 0.30
+
+set xtics rotate by 30 right
+
+set yrange[0:2]
+
+set ytics 1
+set ylabel ''
+set format y "%6.2f"
+
+set grid y 
+
+set key on outside center top horizontal maxcols 3
+
+set style histogram columns
+set style fill solid 0.8 border -1
+set key autotitle column
+set boxwidth 0.2 relative
+
+plot  "../data/normalized_cpu.csv" u 1:(0):xticlabels(2) with points,\
+      "../data/normalized_cpu.csv" u ($1-0.2):13 with boxes title "GFLOPS/Socket" ,\
+      "../data/normalized_cpu.csv" u ($1+0.0):14 with boxes title "GFLOPS/Watt", \
+      "../data/normalized_cpu.csv" u ($1+0.2):15 with boxes title "GFLOPS/Dollar"
