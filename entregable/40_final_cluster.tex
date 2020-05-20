@@ -8,15 +8,15 @@ Per fer-ho, afegim quatre gràfiques \textit{AMD Radeon Pro WX8200}, afegint 2.6
 Per calcular el consum de potència, hem tingut en compte els següents valors (aproximant aquells dels que no trobàvem dades concretes)
 \begin{table}[h!]
 \centering
-\begin{tabular}{ll}
+\begin{tabular}{lc}
 \hline
-\multicolumn{1}{|l|}{Component}         & \multicolumn{1}{l|}{Consum (W)} \\ \hline
-\multicolumn{1}{|l|}{CPUs}        & \multicolumn{1}{l|}{56880}      \\ \hline
-\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}GPUs \\ Instinct\end{tabular}} & \multicolumn{1}{l|}{3600} \\ \hline
-\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}GPUs \\ Pro\end{tabular}}      & \multicolumn{1}{l|}{920}  \\ \hline
-\multicolumn{1}{|l|}{Memòria\cite{consummem}}     & \multicolumn{1}{l|}{3792}       \\ \hline
-\multicolumn{1}{|l|}{Commutadors\cite{consumnintendo}} & \multicolumn{1}{l|}{500}        \\ \hline
-\multicolumn{1}{|l|}{Total}       & \multicolumn{1}{l|}{65692}      \\ \hline
+\multicolumn{1}{l|}{Component}         & \multicolumn{1}{l}{Consum (W)} \\ \hline
+\multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}CPUs}        & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}56880}      \\
+\multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}GPUs \\ Instinct\end{tabular}} & \multicolumn{1}{l}{3600} \\
+\multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}l@{}}GPUs \\ Pro\end{tabular}}      & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}920}  \\
+\multicolumn{1}{l|}{Memòria \cite{consummem}}     & \multicolumn{1}{l}{3792}       \\
+\multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}Commutadors \cite{consumnintendo}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}500}        \\
+\multicolumn{1}{l|}{Total}       & \multicolumn{1}{l}{65692}      \\ \hline
                                   &                                
 \end{tabular}
 \caption{Càlcul de potència}
@@ -70,7 +70,9 @@ Power dissipation total (W) & 65692 \\
 
 
 \begin{table}[h]
-\begin{tabular}{c|c|c||c|c}
+\begin{adjustwidth}{-1.5in}{-1.5in}
+\begin{center}
+\begin{tabular}{l|c|c||c|c}
     \hline
 Component                           & \multicolumn{2}{c||}{Specifications}                                         & Bandwith (GB/s)          & Total BW (GB/s)          \\ \hline  \hline 
                                     & \cellcolor[HTML]{EFEFEF}bits/T               & \cellcolor[HTML]{EFEFEF}64  &                          &                          \\
@@ -84,11 +86,15 @@ Component                           & \multicolumn{2}{c||}{Specifications}      
 \end{tabular}
     \caption{Peak bandwidth d'un socket i d'un node.}
     \label{tab:peak_bw}
+\end{center}
+\end{adjustwidth}
 \end{table}
 
 A la taula \ref{tab:peak_bw} observem quin és el bandwidth màxim que podem obtenir pel socket, el qual és el mateix pel node.
 
 \begin{table}[h]
+\begin{adjustwidth}{-1.5in}{-1.5in}
+\begin{center}
 \begin{tabular}{c||c|c|c}
     \hline
 Component                                                                            & \multicolumn{2}{c|}{Specs}                                         & GFlops                     \\ \hline \hline
@@ -102,6 +108,8 @@ Component                                                                       
 \end{tabular}
     \caption{GFlops per cada component de càlcul d'un socket.}
     \label{tab:gflops_socket}
+\end{center}
+\end{adjustwidth}
 \end{table}
 
 A la taula \ref{tab:gflops_socket} hem calculat els GFlops que ens aportaria un processador, 3 targetes gràfiques AMD Radeon Instinct MI50 i 1 AMD Radeon PRO WX8200. Per tant, només queda calcular els GFlops dels nodes d'1U, només amb CPUs, i dels de 2U, amb CPUs i GPUs.
@@ -112,8 +120,7 @@ A la taula \ref{tab:gflops_socket} hem calculat els GFlops que ens aportaria un 
     \item GFlops node 1U:\\
 \[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
     \item GFlops socket node 2U:\\
-\[\]
-        \[ 1280\ GFlops/cpu + 20597.76\ GFlops/GPU\_MI50 + 672\ GFlops/GPU_WX8200 = 1280\ GFlops/socket\]
+        \[ \begin{aligned} 1280\ GFlops/cpu + 20597.76\ GFlops/GPU\_MI50 + \\ + 672\ GFlops/GPU_WX8200 = 1280\ GFlops/socket \end{aligned} \]
 
     \item GFlops node 2U:\\
 \[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
