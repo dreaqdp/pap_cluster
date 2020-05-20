@@ -5,7 +5,27 @@ Podem veure que el percentatge de TFlops de les gràfiques respecte el total és
 
 Per fer-ho, afegim quatre gràfiques \textit{AMD Radeon Pro WX8200}, afegint 2.625 TFlops al nostre clúster. El preu s'incrementa en 3879.96 \$ i el ràtio de \texttt{TFlops GPU/Total} acaba sent 0.296.
 
-Més concretament, aquesta és la configuració que hem escollit:
+Per calcular el consum de potència, hem tingut en compte els següents valors (aproximant aquells dels que no trobàvem dades concretes)
+\begin{table}[h!]
+\centering
+\begin{tabular}{ll}
+\hline
+\multicolumn{1}{|l|}{Nom}         & \multicolumn{1}{l|}{Consum (W)} \\ \hline
+\multicolumn{1}{|l|}{CPUs}        & \multicolumn{1}{l|}{56880}      \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}GPUs \\ Instinct\end{tabular}} & \multicolumn{1}{l|}{3600} \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}GPUs \\ Pro\end{tabular}}      & \multicolumn{1}{l|}{920}  \\ \hline
+\multicolumn{1}{|l|}{Memòria\cite{consummem}}     & \multicolumn{1}{l|}{3792}       \\ \hline
+\multicolumn{1}{|l|}{Commutadors\cite{consumnintendo}} & \multicolumn{1}{l|}{500}        \\ \hline
+\multicolumn{1}{|l|}{Total}       & \multicolumn{1}{l|}{65692}      \\ \hline
+                                  &                                
+\end{tabular}
+\caption{Càlcul de potència}
+\end{table}
+
+
+\clearpage
+
+Finalment, aquesta és la configuració que hem escollit:
 \begin{table}[H]
 \begin{adjustwidth}{-1.0in}{-1.0in}
 \begin{center}
@@ -35,8 +55,8 @@ Cores/Node                                       & 64                           
 {\cellcolor[HTML]{EFEFEF}Cost (Dòllars)}                 & {\cellcolor[HTML]{EFEFEF}1127027.41}              \\
 {\color[HTML]{000000}GFlops/Dòllar}               & {\color[HTML]{000000}0.255}                    \\
     \rowcolor[HTML]{EFEFEF}
-Power dissipation total & TODO \\
-    Energy efficiency & TODO \\ \hline
+Power dissipation total (Mega Watts) & 65.692 \\
+    Energy efficiency (GFlops/Watt) & 4.374 \\ \hline
 \end{tabular}
 \caption{Configuració final del clúster.}
 \end{center}
