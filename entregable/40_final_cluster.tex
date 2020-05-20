@@ -11,26 +11,29 @@ Més concretament, aquesta és la configuració que hem escollit:
 \begin{center}
 \begin{tabular}{l|l}
 \hline
-{\cellcolor[HTML]{EFEFEF}CPU}         & {\cellcolor[HTML]{EFEFEF}Dual-Socket AMD EPYC Rome 7502P} \\ 
+    {\cellcolor[HTML]{EFEFEF}CPU}         & {\cellcolor[HTML]{EFEFEF}Dual-socket AMD EPYC Rome 7502P \cite{cpu_amd_7502_buy}} \\ 
 Cores/Node                                       & 128                                             \\ 
-{\cellcolor[HTML]{EFEFEF}GPU\_1}                       & {\cellcolor[HTML]{EFEFEF}AMD Radeon Instinct MI50} \\ 
+    {\cellcolor[HTML]{EFEFEF}GPU\_1}                       & {\cellcolor[HTML]{EFEFEF}AMD Radeon Instinct MI50 \cite{gpu_mi50}} \\ 
 \#GPU\_1                                           & 12 (2 nodes amb 6 GPUs)                         \\
-{\cellcolor[HTML]{EFEFEF}GPU\_2}                       & {\cellcolor[HTML]{EFEFEF}AMD RadeonPro WX8200} \\ 
+    {\cellcolor[HTML]{EFEFEF}GPU\_2}                       & {\cellcolor[HTML]{EFEFEF}AMD Radeon Pro WX8200 \cite{gpu_pro_8200}} \\ 
 \#GPU\_2                                           & 4 (2 nodes amb 2 GPUs)                         \\
-{\cellcolor[HTML]{EFEFEF}Memòria}     & {\cellcolor[HTML]{EFEFEF}Kingston KSM29RS4 DDR4 2933Hz}   \\
+    {\cellcolor[HTML]{EFEFEF}Memòria}     & {\cellcolor[HTML]{EFEFEF}Kingston KSM29RS4 DDR4 2933Hz \cite{mem2}}   \\
 {\color[HTML]{000000}Memòries/node}             & {\color[HTML]{000000}8 DIMMS de 16GB}          \\ 
-{\cellcolor[HTML]{EFEFEF}Commutadors} & {\cellcolor[HTML]{EFEFEF}Mellanox MQM8700-HS2F, 200Gbits} \\ 
+    {\cellcolor[HTML]{EFEFEF}Commutadors} & {\cellcolor[HTML]{EFEFEF}Mellanox MQM8700-HS2F, 200Gbits \cite{mellanox_mqm8700-hs2f}} \\ 
 {\color[HTML]{000000}\#Commutadors}             & {\color[HTML]{000000}3}                        \\ 
 {\cellcolor[HTML]{EFEFEF}\#Nodes sense GPU (1U)}    & {\cellcolor[HTML]{EFEFEF}77}                       \\
 {\color[HTML]{000000}\#Nodes amb GPU (2U)}      & {\color[HTML]{000000}2}                        \\
 {\cellcolor[HTML]{EFEFEF}Us de nodes}               & {\cellcolor[HTML]{EFEFEF}81}                       \\
-{\color[HTML]{000000}Us de nodes + commutadors} & {\color[HTML]{000000}84}                       \\
+{\color[HTML]{000000}Us de nodes + commutadors} & {\color[HTML]{000000}84}                       \\ \hline
 {\cellcolor[HTML]{EFEFEF}TFlops CPU}                & {\cellcolor[HTML]{EFEFEF}197.5}                    \\
 {\color[HTML]{000000}TFlops GPU}                & {\color[HTML]{000000}83.085}                    \\ 
 {\cellcolor[HTML]{EFEFEF}TFlops Totals}             & {\cellcolor[HTML]{EFEFEF}280.585}                   \\ 
 {\color[HTML]{000000}TFlops GPU/Totals}         & {\color[HTML]{000000} 0.296}                    \\ 
 {\cellcolor[HTML]{EFEFEF}Cost (Dòllars)}                 & {\cellcolor[HTML]{EFEFEF}1127027.41}              \\
-{\color[HTML]{000000}GFlops/Dòllar}               & {\color[HTML]{000000}0.255}                    \\ \hline
+{\color[HTML]{000000}GFlops/Dòllar}               & {\color[HTML]{000000}0.255}                    \\
+    \rowcolor[HTML]{EFEFEF}
+Power dissipation total & TODO \\
+    Energy efficiency & TODO \\ \hline
 \end{tabular}
 \caption{Configuració final del clúster.}
 \end{center}
