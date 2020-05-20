@@ -9,7 +9,7 @@ set output '../img/connections.png'
 set yrange[0:100]
 set xrange[0:10]
 
-set style line 12 lc rgb 'black' lt 1 lw 1 dt '-'
+set style line 12 lc rgb 'grey' lt 1 lw 1 dt '-'
 
 set grid x ls 12
 
