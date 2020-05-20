@@ -153,9 +153,20 @@ En el nostre clúster un dels tipus de node que tenim és només amb processador
         \end{itemize}
 \end{itemize}
 
-%    \item GFlops socket node 2U:\\
-%        \[ \begin{aligned} 1280\ GFlops/cpu + 20597.76\ GFlops/GPU\_MI50 + \\ + 672\ GFlops/GPU_WX8200 = 1280\ GFlops/socket \end{aligned} \]
-%
-%    \item GFlops node 2U:\\
-%\[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
-%\end{itemize}
+\subsubsection{CPU i GPU}
+\begin{itemize}
+    \item Socket:
+        \begin{itemize}
+            \item Peak bandwidth
+                \[210.45\ GB/s\ CPU\_socket + 256\ GB/s\ PCIe\ 4.0 = 466.45 GB/s\ socket\]
+            \item Peak performance
+                \[ 1280\ GFlops\ CPU\_socket + 692.12\ TB/s GPU\_socket = 22.02 TFlops/socket\]
+        \end{itemize}
+    \item Node:
+        \begin{itemize}
+            \item Peak bandwidth
+                \[466.45\ GB/s\ socket = 466.45\ GB/s\ node\]
+            \item Peak performance
+\[2\ sockets \times 22.02\ TFlops/socket = 44.04\ GFlops/node\]
+        \end{itemize}
+\end{itemize}
