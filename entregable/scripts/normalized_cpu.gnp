@@ -12,11 +12,14 @@ set xtics rotate by 30 right
 
 set yrange[0:2]
 
-set ytics 1
+#set mytics 2
+set ytics "1.00" 1
 set ylabel ''
 set format y "%6.2f"
 
-set grid y 
+set style line 12 lc rgb 'black' lt 1 lw 1 dt '-'
+
+set grid y ls 12
 
 set key on outside center top horizontal maxcols 3
 
