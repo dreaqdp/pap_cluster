@@ -49,28 +49,6 @@ Power dissipation total & TODO \\
 \subsection{Roofline}
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-%\begin{table}[h]
-%\begin{tabular}{lccc|c}
-%    \cline{4-5}
-%    &                      &      & Bandwith (GB/s)         & Total BW (GB/s)         \\ \cline{4-5} \noalign{\vskip\doublerulesep
-%         \vskip--\arrayrulewidth} \hline %\cline{4-5}% \hline \hline
-%    \multirow{3}{*}{DRAM}              & \cellcolor[HTML]{EFEFEF}Bits/T               &\cellcolor[HTML]{EFEFEF} 64   & \multirow{3}{*}{\cellcolor[HTML]{EFEFEF}187.06} & \multirow{8}{*}{210.45} \\
-%\multicolumn{1}{l|}                                   & GT/s                 & 2.92 &\cellcolor[HTML]{EFEFEF}                         &                         \\
-%\multicolumn{1}{l|}                                   & \cellcolor[HTML]{EFEFEF}Channels             & \cellcolor[HTML]{EFEFEF}8    &\cellcolor[HTML]{EFEFEF}                         &                         \\ \cline{1-4}
-%\multicolumn{1}{l|}\multirow{3}{*}{Infinity fabric 2} & GT/s                 & 2.92 & \multirow{3}{*}{23.38}  &                         \\
-%\multicolumn{1}{l|}                                   & \cellcolor[HTML]{EFEFEF}Effective trans bits & \cellcolor[HTML]{EFEFEF}32   &                         &                         \\
-%                                   & Directions           & 2    &                         &                         \\ \cline{1-4}
-%\multicolumn{1}{l|}\multirow{2}{*}{PCIe 4.0}          & \cellcolor[HTML]{EFEFEF}Lanes                & \cellcolor[HTML]{EFEFEF}128  & \multirow{2}{*}{256.00} &                         \\
-%                                   & GT/s                 & 16   &                         &                         \\ \hline
-%\end{tabular}
-%\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[h]
 \begin{tabular}{c|c|c||c|c}
     \hline
@@ -88,14 +66,35 @@ Component                           & \multicolumn{2}{c||}{Specifications}      
     \label{tab:peak_bw}
 \end{table}
 
+A la taula \ref{tab:peak_bw} observem quin és el bandwidth màxim que podem obtenir pel socket, el qual és el mateix pel node.
 
 \begin{table}[h]
-\begin{tabular}{c|c|c||c|c|c}
-Component                                                                            & \multicolumn{2}{c}{Specs}                                         & GFlops                     & Socket GFlops              & Node GFlops                \\
-                                                                                     & \cellcolor[HTML]{EFEFEF}Freq (GHz)  & \cellcolor[HTML]{EFEFEF}2.5 &                            &                            &                            \\
-                                                                                     & ops/cycle                           & 16                          &                            &                            &                            \\
-\multirow{-3}{*}{AMD EPYC 7502P}                                                     & \cellcolor[HTML]{EFEFEF}\#cores     & \cellcolor[HTML]{EFEFEF}32  & \multirow{-3}{*}{1280}     &                            &                            \\
-                                                                                     & FP64 GFlops                         & 6865.92                     &                            &                            &                            \\
-\multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}AMD Radeon\\ Instinct Mi50\end{tabular}} & \cellcolor[HTML]{EFEFEF}GPUs/socket & \cellcolor[HTML]{EFEFEF}4   & \multirow{-2}{*}{27463.68} & \multirow{-5}{*}{28743.68} & \multirow{-5}{*}{57487.36}
+\begin{tabular}{c||c|c|c}
+    \hline
+Component                                                                            & \multicolumn{2}{c|}{Specs}                                         & GFlops                     \\ \hline \hline
+                                                                                     & \cellcolor[HTML]{EFEFEF}Freq (GHz)  & \cellcolor[HTML]{EFEFEF}2.5 &                            \\
+                                                                                     & ops/cycle                           & 16                          &                            \\
+\multirow{-3}{*}{\begin{tabular}[c]{@{}l@{}}AMD EPYC\\ 7502P\end{tabular}}           & \cellcolor[HTML]{EFEFEF}\#cores     & \cellcolor[HTML]{EFEFEF}32  & \multirow{-3}{*}{1280}     \\ \hline
+                                                                                     & FP64 GFlops                         & 6865.92                     &                            \\
+\multirow{-2}{*}{\begin{tabular}[c]{@{}l@{}}AMD Radeon\\ Instinct Mi50\end{tabular}} & \cellcolor[HTML]{EFEFEF}GPUs/socket & \cellcolor[HTML]{EFEFEF}3   & \multirow{-2}{*}{20597.76} \\ \hline
+                                                                                     & FP64 GFlops                         & 672                         &                            \\
+\multirow{-2}{*}{\begin{tabular}[c]{@{}l@{}}AMD Radeon\\ Pro WX8200\end{tabular}}    & \cellcolor[HTML]{EFEFEF}GPUs/socket & \cellcolor[HTML]{EFEFEF}1   & \multirow{-2}{*}{672}      \\ \hline
 \end{tabular}
+    \caption{GFlops per cada component de càlcul d'un socket.}
+    \label{tab:gflops_socket}
 \end{table}
+
+A la taula \ref{tab:gflops_socket} hem calculat els GFlops que ens aportaria un processador, 3 targetes gràfiques AMD Radeon Instinct MI50 i 1 AMD Radeon PRO WX8200. Per tant, només queda calcular els GFlops dels nodes d'1U, només amb CPUs, i dels de 2U, amb CPUs i GPUs.
+
+\begin{itemize}
+    \item GFlops socket node 1U:\\
+        \[ 1\ CPU \times 1280\ GFlops/cpu = 1280\ GFlops/socket\]
+    \item GFlops node 1U:\\
+\[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
+    \item GFlops socket node 2U:\\
+\[\]
+        \[ 1280\ GFlops/cpu + 20597.76\ GFlops/GPU\_MI50 + 672\ GFlops/GPU_WX8200 = 1280\ GFlops/socket\]
+
+    \item GFlops node 2U:\\
+\[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
+\end{itemize}
