@@ -6,11 +6,12 @@ set datafile separator ","
 set terminal pngcairo size 1024,512 enhanced font 'Verdana,10'
 set output '../img/summary.png'
 
+set bmargin at screen 0.30
+
 set xtics rotate by -30 mirror
 
 set yrange[0:300]
 set y2range[0:0.5]
-
 
 set ytics
 set ylabel 'TFLOPS'
@@ -26,7 +27,6 @@ set style histogram columns
 set style fill solid 0.8 border -1
 set key autotitle column
 set boxwidth 0.4 relative
-set format y "    "
 
 plot  "../data/summary.csv" u 1:(0):xticlabels(2) with points,\
       "../data/summary.csv" u ($1-0.2):3 with boxes axes x1y1 title "Performance" ,\
