@@ -72,25 +72,25 @@ Power dissipation total (W) & 65692 \\
 \begin{table}[h]
 \begin{adjustwidth}{-1.5in}{-1.5in}
 \begin{center}
-\begin{tabular}{l|c|c||c|c}
+\begin{tabular}{l||c|c|c}
     \hline
-Component                           & \multicolumn{2}{c||}{Specifications}                                         & Bandwith (GB/s)          & Total BW (GB/s)          \\ \hline  \hline 
-                                    & \cellcolor[HTML]{EFEFEF}bits/T               & \cellcolor[HTML]{EFEFEF}64  &                          &                          \\
-                                    & GT/s                                         & 2.922851563                 &                          &                          \\
-    \multirow{-3}{*}{DRAM}              & \cellcolor[HTML]{EFEFEF}Channels             & \cellcolor[HTML]{EFEFEF}8   & \multirow{-3}{*}{187.06} &                          \\ \cline{1-4}
-                                    & GT/s                                         & 2.922851563                 &                          &                          \\
-                                    & \cellcolor[HTML]{EFEFEF}Effective trans bits & \cellcolor[HTML]{EFEFEF}32  &                          &                          \\
-    \multirow{-3}{*}{Infinity fabric 2} & Directions                                   & 2                           & \multirow{-3}{*}{23.38}  &                          \\ \cline{1-4}
-                                    & \cellcolor[HTML]{EFEFEF}Lanes                & \cellcolor[HTML]{EFEFEF}128 &                          &                          \\
-\multirow{-2}{*}{PCIe 4.0}          & GT/s                                         & 16                          & \multirow{-2}{*}{256.00} & \multirow{-8}{*}{210.45} \\ \hline
+Component                           & \multicolumn{2}{c|}{Specifications}                                         & Bandwith (GB/s)          \\ \hline  \hline 
+                                    & \cellcolor[HTML]{EFEFEF}bits/T               & \cellcolor[HTML]{EFEFEF}64  &                          \\
+                                    & GT/s                                         & 2.922851563                 &                          \\
+    \multirow{-3}{*}{DRAM}              & \cellcolor[HTML]{EFEFEF}Channels             & \cellcolor[HTML]{EFEFEF}8   & \multirow{-3}{*}{187.06} \\ \hline
+                                    & GT/s                                         & 2.922851563                 &                          \\
+                                    & \cellcolor[HTML]{EFEFEF}Effective trans bits & \cellcolor[HTML]{EFEFEF}32  &                          \\
+    \multirow{-3}{*}{Infinity fabric 2} & Directions                                   & 2                           & \multirow{-3}{*}{23.38}  \\ \hline
+                                    & \cellcolor[HTML]{EFEFEF}Lanes                & \cellcolor[HTML]{EFEFEF}128 &                          \\
+\multirow{-2}{*}{PCIe 4.0}          & GT/s                                         & 16                          & \multirow{-2}{*}{256.00} \\ \hline
 \end{tabular}
-    \caption{Peak bandwidth d'un socket i d'un node.}
+    \caption{Bandwidth de cada element de transmissió de dades del socket.}
     \label{tab:peak_bw}
 \end{center}
 \end{adjustwidth}
 \end{table}
 
-A la taula \ref{tab:peak_bw} observem quin és el bandwidth màxim que podem obtenir pel socket, el qual és el mateix pel node.
+A la taula \ref{tab:peak_bw} observem quin és el bandwidth màxim que podem obtenir amb cada component del socket, el qual és el mateix pel node. Hem tingut en compte l'accés a memòria a través dels canals de memòria i a través de d'Infinity Fabric 2 \cite{amd_if2}, el xip d'interconnexió equivalent al QPI d'Intel. També hem calculat l'accés per PCIe perquè es necessari per enviar/rebre les dades a/de la memòria de la targeta gràfica.
 
 \begin{table}[h]
 \begin{adjustwidth}{-1.5in}{-1.5in}
@@ -112,16 +112,50 @@ Component                                                                       
 \end{adjustwidth}
 \end{table}
 
-A la taula \ref{tab:gflops_socket} hem calculat els GFlops que ens aportaria un processador, 3 targetes gràfiques AMD Radeon Instinct MI50 i 1 AMD Radeon PRO WX8200. Per tant, només queda calcular els GFlops dels nodes d'1 U, només amb CPUs, i dels de 2 U, amb CPUs i GPUs.
+A la taula \ref{tab:gflops_socket} hem calculat els GFlops que ens aportaria un processador, 3 targetes gràfiques AMD Radeon Instinct MI50 i 1 AMD Radeon PRO WX8200, ja que són els elements de càlcul d'un socket. Per tant, ara toca desglosar el càlcul del peak bandwidth i performance en funció del tipus de node: d'1 U, només amb CPUs, i de 2 U, amb CPUs i GPUs.
+
+\subsubsection{Només CPU}
+En el nostre clúster un dels tipus de node que tenim és només amb processadors. Procedim a calcular el peak bandwidth i performance per socket i node:
 
 \begin{itemize}
-    \item GFlops socket node 1U:\\
-        \[ 1\ CPU \times 1280\ GFlops/cpu = 1280\ GFlops/socket\]
-    \item GFlops node 1U:\\
+    \item Socket:
+        \begin{itemize}
+            \item Peak bandwidth
+                \[187.06\ GB/s\ DRAM + 23.38\ GB/s\ IF2 = 210.45 GB/s\ socket\]
+            \item Peak performance
+        \[ 1\ CPU \times 1280\ GFlops/cpu = 1280\ GFlops\ socket\]
+        \end{itemize}
+    \item Node:
+        \begin{itemize}
+            \item Peak bandwidth
+                \[210.45\ GB/s\ socket = 210.45\ GB/s\ node\]
+            \item Peak performance
 \[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
-    \item GFlops socket node 2U:\\
-        \[ \begin{aligned} 1280\ GFlops/cpu + 20597.76\ GFlops/GPU\_MI50 + \\ + 672\ GFlops/GPU_WX8200 = 1280\ GFlops/socket \end{aligned} \]
-
-    \item GFlops node 2U:\\
-\[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
+        \end{itemize}
 \end{itemize}
+
+\subsubsection{Només GPU}
+
+\begin{itemize}
+    \item Socket:
+        \begin{itemize}
+            \item Peak bandwidth
+                \[3\ MI50 \time 1024\ GB/s\ HDM2 + 1\ WX8200 \time 512\ GB/s\ HBM2 = 3584 GB/s\ socket\]
+            \item Peak performance
+                \[3\ MI50 \time 20597.76\ GFlops/MI50 + 1\ WX8200 \time 672\ GFlops/WX8200 = 692.12 TB/s\ socket\]
+        \end{itemize}
+    \item Node:
+        \begin{itemize}
+            \item Peak bandwidth
+                \[2\ sockets \times 3584\ GB/s\ socket = 7168\ GB/s\ node\]
+            \item Peak performance
+\[2\ sockets \times 692.12\ TFlops/socket = 1384.23\ GFlops/node\]
+        \end{itemize}
+\end{itemize}
+
+%    \item GFlops socket node 2U:\\
+%        \[ \begin{aligned} 1280\ GFlops/cpu + 20597.76\ GFlops/GPU\_MI50 + \\ + 672\ GFlops/GPU_WX8200 = 1280\ GFlops/socket \end{aligned} \]
+%
+%    \item GFlops node 2U:\\
+%\[2\ sockets \times 1280\ GFlops/socket = 2560\ GFlops/node\]
+%\end{itemize}
